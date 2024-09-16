@@ -7,7 +7,8 @@ import {
     ListByRemarkService,
     ProductDetailService,
     ProductReviewListService,
-    SliderListService
+    SliderListService,
+    SmilierProductService
 } from "../Services/ProductService.js";
 
 
@@ -40,18 +41,24 @@ export const ListByCategory= async (req, res) => {
 
 }
 
-export const ListByKeyword= async (req, res) => {
-    let result = await ListByKeywordService(req)
-    return res.json(result)
-
-}
-
 export const ListByRemark= async (req, res) => {
     let result = await ListByRemarkService(req)
     return res.json(result)
 
 }
 
+export const SmilierProduct= async (req, res) => {
+    let result = await SmilierProductService(req)
+    return res.json(result)
+
+}
+
+
+export const ListByKeyword= async (req, res) => {
+    let result = await ListByKeywordService(req)
+    return res.json(result)
+
+}
 
 
 export const ProductDetail= async (req, res) => {
@@ -66,6 +73,8 @@ export const ProductReviewList= async (req, res) => {
     return res.json(result)
 
 }
+
+
 
 
 
