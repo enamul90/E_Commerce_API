@@ -1,0 +1,12 @@
+import mongoose from 'mongoose'
+
+const CategorySchema = new mongoose.Schema({
+        category_name: {type: String, required: true,unique: true},
+        category_img: {type: String, required: true},
+    }, { timestamps: true, versionKey: false }
+
+)
+
+const CategoryModel = mongoose.model('Categories', CategorySchema);
+
+export default CategoryModel;
