@@ -3,7 +3,8 @@ import BrandModel from "../models/BrandModel.js";
 import CategoryModel from "../models/CategoryModel.js";
 import productSliderModel from "../models/ProductSliderModel.js";
 import productModel from "../models/ProductModel.js";
-import productDetailModel from "../models/ProductDetailModel.js";
+import reviewModel from "../models/ReviewModel.js";
+
 
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -162,8 +163,6 @@ export const SmilierProductService =  async (req)=>{
 
 }
 
-
-
 export  const ListByKeywordService =  async (req)=>{
     try{
         let searchRegex= {$regex:req.params.Keyword, "$options":"i"};
@@ -199,9 +198,6 @@ export  const ListByKeywordService =  async (req)=>{
 
 
 }
-
-
-
 
 export const ProductDetailService =  async (req)=>{
 
@@ -240,8 +236,30 @@ export const ProductDetailService =  async (req)=>{
 
 
 
-export const ProductReviewListService =  async ()=>{
+export const ProductReviewListService =  async (req)=>{
 
+    try{
+        let ProductID = new ObjectId(req.params.productID);
+        let MatchStage= {$match:{productID:ProductID}};
+        let JoinWithProfile = {$lookup:{from:"profiles",localField:"userID",foreignField:"userID",as:"Profile"}};
+        let unwindProfile={$unwind:"$Profile"}
+        let ProjectionStage = {$project:{'des':1, 'rating':1,'Profile.cus_name':1,  }}
+
+
+
+        let data = await reviewModel.aggregate([
+            MatchStage,
+            JoinWithProfile,
+            unwindProfile,
+            ProjectionStage
+        ])
+
+        return {Status:"success", Message:"review list", data:data};
+    }
+
+    catch (err){
+        return {Status:"Fail",Error:err.toString()}
+    }
 }
 
 

@@ -35,7 +35,10 @@ router.get('/ProductListByRemark/:Remark',ProductController.ListByRemark)
 router.get('/SmilierProduct/:CategoryID',ProductController.SmilierProduct)
 router.get('/ListByKeyword/:Keyword',ProductController.ListByKeyword)
 router.get('/ProductDetail/:ProductID',ProductController.ProductDetail)
-router.post('/ProductReviewList',ProductController.ProductReviewList)
+router.get('/ProductReviewList/:productID',ProductController.ProductReviewList)
+
+
+
 
 
 
