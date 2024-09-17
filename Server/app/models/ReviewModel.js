@@ -5,10 +5,8 @@ const ReviewSchema = new mongoose.Schema({
     userID: { type:mongoose.Schema.Types.ObjectId, unique: true,},
     des:String,
     rating:String,
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
-
-})
+},{ timestamps: true, versionKey: false }
+)
 
 const Review = mongoose.model('Review',  ReviewSchema);
 export default Review;

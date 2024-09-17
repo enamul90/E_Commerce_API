@@ -268,7 +268,7 @@ export const ProductReviewListService =  async (req)=>{
 
 
 
-// create some Data
+// Create data Service
 
 export const CreateSliderListService =  async (req)=>{
     try{

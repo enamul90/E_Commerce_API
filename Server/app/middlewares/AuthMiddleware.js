@@ -5,7 +5,7 @@ export default (req, res, next)=>{
     let token = req.headers['token']
     let decoded = TokenDecode(token)
     if(decoded===null){
-        res.status(401).json({status:'fail',message:"No token found"})
+        res.status(401).json({status:'fail',message:"unauthorized"})
     }
     else{
         let email = decoded.email;

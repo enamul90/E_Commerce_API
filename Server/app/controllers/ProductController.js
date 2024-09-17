@@ -79,7 +79,7 @@ export const ProductReviewList= async (req, res) => {
 
 
 
-// Create Some data
+// Create data Controller
 
 export const CreateSliderList = async (req, res) => {
     let result = await  CreateSliderListService (req)

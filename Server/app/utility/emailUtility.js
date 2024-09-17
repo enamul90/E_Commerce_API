@@ -19,7 +19,7 @@ const SendEmail=async(EmailTo, EmailText, EmailSubject)=>{
     })
 
     let mailOptions={
-        from:"Task manager Project <info@teamrabbil.com>",
+        from:"E Commerce App <info@teamrabbil.com>",
         to:EmailTo,
         subject:EmailSubject,
         text:EmailText,
