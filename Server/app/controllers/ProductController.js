@@ -1,6 +1,6 @@
 import {
     BrandListService,
-    CategoryListService, CreateProductService, CreateSliderListService,
+    CategoryListService,
     ListByBrandService,
     ListByCategoryService,
     ListByKeywordService,
@@ -74,19 +74,3 @@ export const ProductReviewList= async (req, res) => {
 
 }
 
-
-
-
-
-
-// Create data Controller
-
-export const CreateSliderList = async (req, res) => {
-    let result = await  CreateSliderListService (req)
-    return res.json(result)
-}
-
-export const CreateProduct = async (req, res) => {
-    let result = await  CreateProductService(req)
-    return res.json(result)
-}

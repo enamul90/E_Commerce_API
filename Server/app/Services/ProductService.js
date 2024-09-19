@@ -263,33 +263,3 @@ export const ProductReviewListService =  async (req)=>{
 }
 
 
-
-
-
-
-
-// Create data Service
-
-export const CreateSliderListService =  async (req)=>{
-    try{
-        let reqBody= req.body;
-        await productSliderModel.create(reqBody);
-
-        return {Status:"success", Message:"ProductDetailService created successfully."};
-    }
-    catch (err){
-        return {Status:"fail", Message:err.toString()};
-    }
-}
-
-export const CreateProductService =  async (req)=>{
-    try{
-        let reqBody= req.body;
-        await productModel.create(reqBody);
-
-        return {Status:"success", Message:"ProductDetailService created successfully."};
-    }
-    catch (err){
-        return {Status:"fail", Message:err.toString()};
-    }
-}

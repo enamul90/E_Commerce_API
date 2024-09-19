@@ -3,24 +3,10 @@ const router = express.Router();
 import * as UsersController from '../app/controllers/UserController.js';
 import AuthMiddleware from "../app/middlewares/AuthMiddleware.js";
 import * as ProductController  from "../app/controllers/ProductController.js";
-import {CreateProfile} from "../app/controllers/UserController.js";
+import * as WishListController from '../app/controllers/WishListController.js';
+import * as CardListController from "../app/controllers/CartListController.js";
 
 
-
-/*
-router.post('/Registration',UsersController.Registration)
-router.post('/Login',UsersController.Login)
-router.get('/ProfileDetail',authMiddleware,UsersController.ProfileDetail)
-router.post('/ProfileUpdate',authMiddleware,UsersController.ProfileUpdate)
-router.post('/EmailVerify/:email',UsersController.EmailVerify)
-router.post('/CodeVerify',UsersController.CodeVerify)
-router.post('/ResetPassword',UsersController.ResetPassword)
-*/
-
-
-// Create data Api
-router.post('/CreateSliderList',ProductController.CreateSliderList)
-router.post('/CreateProduct',ProductController.CreateProduct)
 
 
 
@@ -46,6 +32,20 @@ router.get('/SignOut',AuthMiddleware,UsersController.SignOut)
 router.post('/CreateProfile',AuthMiddleware,UsersController.CreateProfile)
 router.post('/UpdateProfile',AuthMiddleware,UsersController.UpdateProfile)
 router.get('/ReadProfile',AuthMiddleware,UsersController.ReadProfile)
+
+
+
+// Wish List - Card List
+router.get('/WishList',AuthMiddleware,WishListController.WishList)
+router.post('/CreateWishList',AuthMiddleware,WishListController.CreateWishList)
+router.post('/RemoveWishList',AuthMiddleware,WishListController.RemoveWishList)
+
+router.get('/CardList',AuthMiddleware,CardListController.CardList)
+router.post('/CreateCardList',AuthMiddleware,CardListController.CreateCardList)
+router.post('/UpdateCardList',AuthMiddleware,CardListController.UpdateCardList)
+router.post('/RemoveCardList',AuthMiddleware,CardListController.RemoveCardList)
+
+
 
 
 
