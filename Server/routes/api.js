@@ -5,6 +5,7 @@ import AuthMiddleware from "../app/middlewares/AuthMiddleware.js";
 import * as ProductController  from "../app/controllers/ProductController.js";
 import * as WishListController from '../app/controllers/WishListController.js';
 import * as CardListController from "../app/controllers/CartListController.js";
+import * as InvoiceController from "../app/controllers/InvoiceController.js";
 
 
 
@@ -45,6 +46,9 @@ router.post('/CreateCardList',AuthMiddleware,CardListController.CreateCardList)
 router.post('/UpdateCardList',AuthMiddleware,CardListController.UpdateCardList)
 router.post('/RemoveCardList',AuthMiddleware,CardListController.RemoveCardList)
 
+
+// Invoice & Payment
+router.get('/CreateInvoice',AuthMiddleware,InvoiceController.CreateInvoiceController)
 
 
 
