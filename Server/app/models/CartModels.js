@@ -5,7 +5,7 @@ const cardSchema = new mongoose.Schema({
         productID:{type:mongoose.Schema.Types.ObjectId, required: true , unique:true},
         userID:{type:mongoose.Schema.Types.ObjectId, required:true},
         color:{type:String},
-        ftq:{type:String},
+        qty:{type:String},
         size:{type:String},
 
     },{timestamps:true, versionKey:false}

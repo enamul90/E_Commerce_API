@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 
     const paymentSetting = new mongoose.Schema({
-        storeID:String,
-        store_password:String,
+        store_id:String,
+        store_passwd:String,
         currency:String,
         success_url:String,
         fail_url:String,
@@ -12,5 +12,5 @@ import mongoose from 'mongoose'
     },{timestamps:true, versionKey:false}
     )
 
-const paymentModel = mongoose.model('Payment',paymentSetting);
+const paymentModel = mongoose.model('Payment_Setting',paymentSetting);
 export default paymentModel;

@@ -1,5 +1,5 @@
 import {
-    CreateInvoiceService, InvoiceLestService,
+    CreateInvoiceService,
     PaymentCancelService,
     PaymentFailService,
     PaymentIPNService, PaymentSuccessService
@@ -13,23 +13,6 @@ export const CreateInvoiceController = async (req, res) => {
     return res.status(200).send(result)
 }
 
-export const PaymentFailController = async (req, res) => {
-
-    let result = await PaymentFailService(req)
-    return res.status(200).send(result)
-}
-
-export const PaymentCancelController = async (req, res) => {
-
-    let result = await PaymentCancelService(req)
-    return res.status(200).send(result)
-}
-
-export const PaymentIPNController = async (req, res) => {
-
-    let result = await PaymentIPNService(req)
-    return res.status(200).send(result)
-}
 
 export const PaymentSuccessController = async (req, res) => {
 
@@ -37,8 +20,23 @@ export const PaymentSuccessController = async (req, res) => {
     return res.status(200).send(result)
 }
 
-export const InvoiceLestController = async (req, res) => {
 
-    let result = await InvoiceLestService(req)
+export const PaymentFailController = async (req, res) => {
+
+    let result = await PaymentFailService(req)
+    return res.status(200).send(result)
+}
+
+
+export const PaymentCancelController = async (req, res) => {
+
+    let result = await PaymentCancelService(req)
+    return res.status(200).send(result)
+}
+
+
+export const PaymentIPNController = async (req, res) => {
+
+    let result = await PaymentIPNService(req)
     return res.status(200).send(result)
 }

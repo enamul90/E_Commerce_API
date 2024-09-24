@@ -11,5 +11,5 @@ const invoiceProductSchema = new mongoose.Schema({
 },{timestamps:true, versionKey:false}
 )
 
-const invoiceProduct = mongoose.model('Invoice',invoiceProductSchema)
+const invoiceProduct = mongoose.model('Invoice_Product',invoiceProductSchema)
 export default invoiceProduct;

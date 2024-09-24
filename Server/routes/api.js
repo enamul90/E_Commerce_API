@@ -6,6 +6,7 @@ import * as ProductController  from "../app/controllers/ProductController.js";
 import * as WishListController from '../app/controllers/WishListController.js';
 import * as CardListController from "../app/controllers/CartListController.js";
 import * as InvoiceController from "../app/controllers/InvoiceController.js";
+import * as FeaturesController from "../app/controllers/FeaturesController.js";
 
 
 
@@ -47,13 +48,21 @@ router.post('/UpdateCardList',AuthMiddleware,CardListController.UpdateCardList)
 router.post('/RemoveCardList',AuthMiddleware,CardListController.RemoveCardList)
 
 
+
 // Invoice & Payment
+
 router.get('/CreateInvoice',AuthMiddleware,InvoiceController.CreateInvoiceController)
 
+router.post('/PaymentSuccess/:trxID',InvoiceController.PaymentSuccessController)
+router.post('/PaymentFail/:trxID',InvoiceController.PaymentFailController)
+router.post('/PaymentCancel/:trxID',InvoiceController.PaymentCancelController)
+router.post('/PaymentIPN/:trxID',InvoiceController.PaymentIPNController)
 
 
+// Features
 
-
+router.get('/FeaturesList',FeaturesController.FeaturesList)
+// router.get('/LegalDetails/:type',FeaturesController.LegalDetails)
 
 
 
