@@ -2,7 +2,7 @@ import {
     CreateInvoiceService,
     PaymentCancelService,
     PaymentFailService,
-    PaymentIPNService, PaymentSuccessService
+    PaymentIPNService, PaymentSuccessService, InvoiceListService, InvoiceProductService
 } from "../Services/InvoiceService.js";
 
 
@@ -38,5 +38,21 @@ export const PaymentCancelController = async (req, res) => {
 export const PaymentIPNController = async (req, res) => {
 
     let result = await PaymentIPNService(req)
+    return res.status(200).send(result)
+}
+
+
+
+
+export const InvoiceListController = async (req, res) => {
+
+    let result = await InvoiceListService(req)
+    return res.status(200).send(result)
+}
+
+
+export const InvoiceProductController = async (req, res) => {
+
+    let result = await InvoiceProductService(req)
     return res.status(200).send(result)
 }

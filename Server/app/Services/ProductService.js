@@ -4,6 +4,7 @@ import CategoryModel from "../models/CategoryModel.js";
 import productSliderModel from "../models/ProductSliderModel.js";
 import productModel from "../models/ProductModel.js";
 import reviewModel from "../models/ReviewModel.js";
+import ReviewModel from "../models/ReviewModel.js";
 
 
 const ObjectId = mongoose.Types.ObjectId;
@@ -263,3 +264,24 @@ export const ProductReviewListService =  async (req)=>{
 }
 
 
+
+export const CreateReviewService =  async (req)=>{
+
+    let user_id =new ObjectId(req.headers.user_id._id)
+    let reqBody = req.body;
+
+    let data = await ReviewModel.create({
+
+        productID: reqBody["productID"],
+        userID:user_id,
+        des:reqBody["des"],
+        rating:reqBody["rating"],
+        }
+    )
+
+    return {Data: data}
+
+
+
+
+}

@@ -9,6 +9,7 @@ import FormData from "form-data";
 import axios from "axios";
 
 
+
 let ObjectId = mongoose.Types.ObjectId;
 
 export const CreateInvoiceService = async (req) => {
@@ -176,7 +177,6 @@ export const PaymentSuccessService = async (req) => {
 
 }
 
-
 export const PaymentFailService = async (req) => {
 
     try{
@@ -212,5 +212,57 @@ export const PaymentIPNService = async (req) => {
 
 }
 
+
+export const InvoiceListService = async (req) => {
+
+    try{
+        let user_id =new ObjectId(req.headers.user_id._id)
+
+        let data = await InvoiceModels.find({userID:user_id});
+
+        return { status:"success" ,data:data}
+    }
+
+    catch (err){
+        return { status:"Fail" ,Error:err.toString()};
+    }
+
+}
+
+
+export const InvoiceProductService = async (req) => {
+
+    try{
+        let user_id =new ObjectId(req.headers.user_id._id)
+        let InvoiceID = new ObjectId( req.params.invoiceID)
+
+        let matchingStage = {$match:{userID: user_id, invoiceID:InvoiceID}};
+        let joinProduct = {$lookup: {
+                from: 'products',
+                localField:"productID",
+                foreignField: "_id",
+                as:"product"
+            }}
+
+        let unwindProduct={$unwind:"$product"}
+
+        let product =await InvoiceProductModels.aggregate(
+            [
+                matchingStage,
+                joinProduct,
+                unwindProduct,
+            ]
+        )
+
+
+        return { status:"success" ,data:product}
+    }
+
+    catch (e){
+        return { status:"Fail" ,Error:e.toString()}
+    }
+
+
+}
 
 

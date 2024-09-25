@@ -8,7 +8,8 @@ import {
     ProductDetailService,
     ProductReviewListService,
     SliderListService,
-    SmilierProductService
+    SmilierProductService,
+    CreateReviewService
 } from "../Services/ProductService.js";
 
 
@@ -74,3 +75,10 @@ export const ProductReviewList= async (req, res) => {
 
 }
 
+
+
+export const CreateReview= async (req, res) => {
+    let result = await CreateReviewService(req)
+    return res.json(result)
+
+}

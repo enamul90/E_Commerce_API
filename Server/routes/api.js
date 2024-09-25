@@ -12,6 +12,7 @@ import * as FeaturesController from "../app/controllers/FeaturesController.js";
 
 
 
+
 // Product API
 
 router.get('/BrandList',ProductController.BrandList)
@@ -58,11 +59,23 @@ router.post('/PaymentFail/:trxID',InvoiceController.PaymentFailController)
 router.post('/PaymentCancel/:trxID',InvoiceController.PaymentCancelController)
 router.post('/PaymentIPN/:trxID',InvoiceController.PaymentIPNController)
 
+router.get('/InvoiceList',AuthMiddleware,InvoiceController.InvoiceListController)
+router.get('/InvoiceProduct/:invoiceID',AuthMiddleware,InvoiceController.InvoiceProductController)
+
+
+
+
+
+
 
 // Features
 
 router.get('/FeaturesList',FeaturesController.FeaturesList)
-// router.get('/LegalDetails/:type',FeaturesController.LegalDetails)
+
+
+// Create Review
+
+router.post('/CreateReview',AuthMiddleware,ProductController.CreateReview)
 
 
 
