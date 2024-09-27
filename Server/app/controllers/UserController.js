@@ -21,10 +21,8 @@ export const VerifyLogin = async (req, res) => {
         res.cookie('Token',result['Token'])
     }
     else {
-
+        return res.json(result)
     }
-
-    return res.json(result)
 
 }
 
