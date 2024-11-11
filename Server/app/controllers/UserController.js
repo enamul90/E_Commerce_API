@@ -1,5 +1,6 @@
 
 import {CreateProfileService, ReadProfileService, UserOPTService, VerifyLoginService} from "../Services/UserService.js";
+import {JWT_EXPIRES} from "../config/config.js";
 
 
 
@@ -15,13 +16,18 @@ export const VerifyLogin = async (req, res) => {
     let result = await VerifyLoginService(req)
     if(result['status']==="success"){
         let cookieOption={
-            expires:new Date( Date.now() + 3600 * 60 * 60 * 1000),
-            httpOnly:false
+            maxAge:JWT_EXPIRES,
+            httponly:true,
+            sameSite:"none",
+            secure:true,
+
         }
-        res.cookie('Token',result['Token'])
+
+        res.cookie('Token',result['Token'],cookieOption)
+        return res.json(result)
     }
     else {
-        return res.json(result)
+        return res.json.stringify(result)
     }
 
 }

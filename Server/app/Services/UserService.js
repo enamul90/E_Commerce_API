@@ -28,14 +28,17 @@ export const VerifyLoginService =  async (req)=>{
     try{
         let email = req.params.email;
         let otp = req.params.otp;
+        console.log(email)
 
         let user = await userModel.find({email:email,otp:otp}).countDocuments('total');
+
 
         if(user===1){
 
             let user_id=await userModel.find({email:email,otp:otp}).select('_id')
 
             let token = TokenEncode(email, user_id[0],['_id'].toString())
+
 
             await userModel.updateOne( {email:email},{$set:{otp:0}},);
 
