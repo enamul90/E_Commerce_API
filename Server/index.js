@@ -70,7 +70,6 @@ mongoose.connect(DATABASE_URL,{autoIndex:true})
 app.use('/api',routes)
 
 
-
 app.listen(PORT, ()=>{
     console.log(`server running on port: ${PORT}`)
 })

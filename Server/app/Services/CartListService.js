@@ -58,7 +58,7 @@ export const CreateCardListService = async (req) => {
 
         await cartModels.create(reqBody);
 
-        return {status:"success", message:"Created Card list successfully"};
+        return {status:"success", message:"Created card list successfully"};
     }
     catch (err){
         return {status:"error", Error:err.toString()};
@@ -77,7 +77,7 @@ export const updateCardListService = async (req) => {
 
         await cartModels.updateOne(reqBody,{$set:reqBody},);
 
-        return {status:"success", message:"Created Card list successfully"};
+        return {status:"success", message:"Created card list successfully"};
     }
     catch (err){
         return {status:"error", Error:err.toString()};

@@ -38,7 +38,7 @@ router.get('/ReadProfile',AuthMiddleware,UsersController.ReadProfile)
 
 
 
-// Wish List - Card List
+// Wish List - card List
 router.get('/WishList',AuthMiddleware,WishListController.WishList)
 router.post('/CreateWishList',AuthMiddleware,WishListController.CreateWishList)
 router.post('/RemoveWishList',AuthMiddleware,WishListController.RemoveWishList)
