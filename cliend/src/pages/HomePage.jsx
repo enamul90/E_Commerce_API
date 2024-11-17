@@ -28,7 +28,7 @@ const HomePage = () => {
                 await ProductListRequest("new")
             }
         )()
-    }, []);
+    },[]);
 
 
     return (
@@ -38,8 +38,6 @@ const HomePage = () => {
             <Categories />
             <Product />
             <Brand />
-
-
         </Layout>
     );
 };
