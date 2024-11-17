@@ -5,7 +5,7 @@ import FeaturesLoader from "../../skeleton/FeaturesLoader.jsx";
 
 const Features = () => {
     let { FeatureList} = FeatureStore()
-    let Data = "https://scontent.fdac177-1.fna.fbcdn.net/v/t39.30808-6/464628204_576193254805982_8327469153857007666_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=G3o3uIVRLIoQ7kNvgFVmdpu&_nc_zt=23&_nc_ht=scontent.fdac177-1.fna&_nc_gid=AAlgDMTfREPWy2vUbzntenA&oh=00_AYCspghaqTcqIFrxp6FzyCS5fts_wfFIJDUgV_eR23VEKg&oe=673976FF"
+    let Data = "https://scontent.fdac177-1.fna.fbcdn.net/v/t39.30808-6/461845609_1730374744415600_8801135535405918223_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=xhr6bu4PgjAQ7kNvgGBa49r&_nc_zt=23&_nc_ht=scontent.fdac177-1.fna&_nc_gid=AIFaoYInWi6EqE5tG05t9Sv&oh=00_AYCB1w4HQf_c4GFCPhbnjnShz5qeLiOedUsPUlnTL8gIog&oe=673FC8E1"
 
     if(FeatureList == null) {
         return (

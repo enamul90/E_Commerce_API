@@ -13,25 +13,28 @@ const Footer = () => {
                             <div className="col-md-4">
                                 <h1 className="bodyMedium fs-5">Legals</h1>
                                 <p className="my-2">
-                                    <Link className="nav-link" to="/">About</Link>
+                                    <Link className="nav-link" to="/about">About</Link>
                                 </p>
                                 <p className="my-2">
-                                    <Link className="nav-link" to="/">Refund Policy</Link>
+                                    <Link className="nav-link" to="/privacy">Refund Policy</Link>
                                 </p>
                                 <p className="my-2">
-                                    <Link className="nav-link" to="/">Terms</Link>
+                                    <Link className="nav-link" to="/terms">Terms</Link>
+                                </p>
+                                <p className="my-2">
+                                    <Link className="nav-link" to="/refund">Refund</Link>
                                 </p>
                             </div>
                             <div className="col-md-4">
                                 <h1 className="bodyMedium fs-5">Information</h1>
                                 <p className="my-2">
-                                    <Link className="nav-link" to="/">How to buy</Link>
+                                    <Link className="nav-link" to="/howtobuy">How to buy</Link>
                                 </p>
                                 <p className="my-2">
-                                    <Link className="nav-link" to="/">Contact</Link>
+                                    <Link className="nav-link" to="/contact">Contact</Link>
                                 </p>
                                 <p className="my-2">
-                                    <Link className="nav-link" to="/">Complain</Link>
+                                    <Link className="nav-link" to="/complain">Complain</Link>
                                 </p>
                             </div>
                             <div className="col-md-4">

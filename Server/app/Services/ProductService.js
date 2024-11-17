@@ -173,7 +173,7 @@ export  const ListByKeywordService =  async (req)=>{
         let MatchStage = {$match:searchQuery};
         let JoinWithBrand = {$lookup:{from:"brands",localField:"brandID",foreignField:"_id",as:"brand"}};
         let JoniWithCategory = {$lookup:{from:"categories",localField:"categoryID",foreignField:"_id",as:"category"}};
-        let JoniWithProductDetail = {$lookup:{from:"productdetails",localField:"_id",foreignField:"productID",as:"productDetail"}};
+        let JoniWithProductDetail = {$lookup:{from:"ProductDetail",localField:"_id",foreignField:"productID",as:"productDetail"}};
         let unwindBrandStage={$unwind:"$brand"}
         let unwindCategoryStage={$unwind:"$category"}
         let unwindProductDetailStage={$unwind:"$productDetail"}

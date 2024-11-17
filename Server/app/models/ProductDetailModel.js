@@ -16,5 +16,5 @@ const productDetailSchema = new mongoose.Schema({
 }, { timestamps: true, versionKey: false }
 )
 
-const ProductDetail = mongoose.model('ProductDetail', productDetailSchema)
+const ProductDetail = mongoose.model('ProductDetail', productDetailSchema);
 export default ProductDetail;
