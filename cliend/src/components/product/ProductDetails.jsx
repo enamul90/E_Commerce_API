@@ -2,17 +2,27 @@ import React from 'react';
 
 import ProductStore from "../../store/ProductStore.js";
 import ProductDetailLoader from "../../skeleton/ProductDetailLoader.jsx";
+import parse from 'html-react-parser'
+import ProductGallery from "../card/ProductGallery.jsx";
+import StarRatings from "react-star-ratings";
 
 
 
 const ProductDetails = () => {
     const {productDetails, productReview} =  ProductStore()
 
-    // const  size = productDetails[0]["productDetail"]["size"]
-    // const  color = productDetails[0]["productDetail"]['color']
-    // const sizeArr = size.split(",");
-    // const colorArr = color.split(",");
+    const [qty, setQty] = React.useState(1);
 
+    const addQty = () => {
+        setQty(qty + 1);
+    }
+    const removeQty = () => {
+        if(qty > 1){
+            setQty(qty - 1);
+        }
+    }
+
+    console.log(productReview)
 
 
     if(productDetails===null){
@@ -27,7 +37,7 @@ const ProductDetails = () => {
                     <div className="container mt-2">
                         <div className="row">
                             <div className="col-md-7 p-3">
-                                {/*<ProductImages/>*/}
+                                <ProductGallery />
                             </div>
                             <div className="col-md-5 p-3">
                                 <h4>{productDetails[0]["title"]}</h4>
@@ -70,9 +80,9 @@ const ProductDetails = () => {
                                     <div className="col-4 p-2">
                                         <label className="bodySmal">Quantity</label>
                                         <div className="input-group my-2">
-                                            <button className="btn btn-outline-secondary">-</button>
-                                            <input type="text" className="form-control bg-light text-center" readOnly/>
-                                            <button className="btn btn-outline-secondary">+</button>
+                                            <button onClick={removeQty} className="btn btn-outline-secondary">-</button>
+                                            <input value={qty} type="text" className="form-control bg-light text-center" readOnly/>
+                                            <button onClick={addQty} className="btn btn-outline-secondary">+</button>
                                         </div>
                                     </div>
                                     <div className="col-4 p-2">
@@ -101,10 +111,36 @@ const ProductDetails = () => {
                             </ul>
                             <div className="tab-content" id="myTabContent">
                                 <div className="tab-pane fade show active" id="Speci-tab-pane" role="tabpanel"
-                                     aria-labelledby="Speci-tab" tabIndex="0"></div>
+                                     aria-labelledby="Speci-tab" tabIndex="0">
+
+                                    {
+                                        parse(productDetails[0]['productDetail']?.des)
+                                    }
+
+                                </div>
                                 <div className="tab-pane fade" id="Review-tab-pane" role="tabpanel"
                                      aria-labelledby="Review-tab"
                                      tabIndex="0">
+                                    {
+                                        productReview ===null? <h3>Loading...</h3> :
+                                            productReview.map((item, index) => {
+                                                return (
+                                                    <div className="mt-4 bg-white shadow p-3 rounded-1" key={index}>
+                                                        <span className='d-flex m-0 p-0'>
+                                                            <i className="bi bi-person-fill"></i>
+                                                            <h5 className='ms-2'>{item.Profile["cus_name"]}</h5>
+                                                        </span>
+                                                        <p className='m-0 p-0'>{item.des}</p>
+                                                        <StarRatings
+                                                            rating={parseInt(item.rating)}
+                                                            starDimension="20px"
+                                                            starSpacing="10px"
+                                                        />
+
+                                                    </div>
+                                                )
+                                            })
+                                    }
                                     <ul className="list-group list-group-flush"></ul>
                                 </div>
                             </div>

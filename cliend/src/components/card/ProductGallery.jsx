@@ -1,0 +1,31 @@
+import React from 'react';
+import ProductStore from "../../store/ProductStore.js";
+import ImageGallery from "react-image-gallery" ;
+import "react-image-gallery/styles/css/image-gallery.css"
+
+const ProductGallery = () => {
+    const {productDetails} =  ProductStore()
+    const images = [
+        {
+            original: "https://picsum.photos/id/1018/1000/600/",
+            thumbnail: "https://picsum.photos/id/1018/250/150/",
+        },
+        {
+            original: "https://picsum.photos/id/1015/1000/600/",
+            thumbnail: "https://picsum.photos/id/1015/250/150/",
+        },
+        {
+            original: "https://picsum.photos/id/1019/1000/600/",
+            thumbnail: "https://picsum.photos/id/1019/250/150/",
+        },
+        // {
+        //     original: productDetails.original[0]["productDetail"]["img1"],
+        //     thumbnail:productDetails.original[0]["productDetail"]["img1"],
+        // },
+    ];
+    return (
+     <ImageGallery items={images} />
+    )
+};
+
+export default ProductGallery;
