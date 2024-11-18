@@ -282,7 +282,22 @@ export const CreateReviewService =  async (req)=>{
 
     return {Data: data}
 
+}
 
+export const ProductListBuyFilterService =  async (req)=>{
 
+    let user_id =new ObjectId(req.headers.user_id._id)
+    let reqBody = req.body;
+
+    let data = await ReviewModel.create({
+
+        productID: reqBody["productID"],
+        userID:user_id,
+        des:reqBody["des"],
+        rating:reqBody["rating"],
+        }
+    )
+
+    return {Data: data}
 
 }

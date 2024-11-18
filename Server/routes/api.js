@@ -11,6 +11,8 @@ import * as FeaturesController from "../app/controllers/FeaturesController.js";
 
 
 
+
+
 // Product API
 
 router.get('/BrandList',ProductController.BrandList)
@@ -23,6 +25,8 @@ router.get('/SmilierProduct/:CategoryID',ProductController.SmilierProduct)
 router.get('/ListByKeyword/:Keyword',ProductController.ListByKeyword)
 router.get('/ProductDetail/:ProductID',ProductController.ProductDetail)
 router.get('/ProductReviewList/:productID',ProductController.ProductReviewList)
+
+router.post('/ProductListBuyFilter',ProductController.ProductListBuyFilter)
 
 
 
@@ -69,7 +73,6 @@ router.get('/InvoiceProduct/:invoiceID',AuthMiddleware,InvoiceController.Invoice
 // Features
 
 router.get('/FeaturesList',FeaturesController.FeaturesList)
-router.get('/LegalDetail/:type',FeaturesController.LegalDetail)
 
 
 // Create Review
