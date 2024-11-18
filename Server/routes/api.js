@@ -11,8 +11,6 @@ import * as FeaturesController from "../app/controllers/FeaturesController.js";
 
 
 
-
-
 // Product API
 
 router.get('/BrandList',ProductController.BrandList)
@@ -71,6 +69,7 @@ router.get('/InvoiceProduct/:invoiceID',AuthMiddleware,InvoiceController.Invoice
 // Features
 
 router.get('/FeaturesList',FeaturesController.FeaturesList)
+router.get('/LegalDetail/:type',FeaturesController.LegalDetail)
 
 
 // Create Review

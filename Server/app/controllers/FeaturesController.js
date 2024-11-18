@@ -1,4 +1,4 @@
-import { FeaturesListService} from "../Services/FeaturesSevice.js";
+import { FeaturesListService, LegalDetailService} from "../Services/FeaturesSevice.js";
 
 
 
@@ -7,11 +7,10 @@ export const FeaturesList=async(req,res)=>{
     return res.status(200).json(result)
 }
 
-/*
-exports.LegalDetails=async(req,res)=>{
-   let result=await LegalDetailsService(req);
+
+export const LegalDetail=async(req,res)=>{
+   let result=await LegalDetailService(req);
    return res.status(200).json(result)
 }
 
 
- */

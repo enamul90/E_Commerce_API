@@ -5,6 +5,7 @@ import productSliderModel from "../models/ProductSliderModel.js";
 import productModel from "../models/ProductModel.js";
 import reviewModel from "../models/ReviewModel.js";
 import ReviewModel from "../models/ReviewModel.js";
+import ProductDetail from "../models/ProductDetailModel.js"
 
 
 const ObjectId = mongoose.Types.ObjectId;
@@ -172,7 +173,7 @@ export  const ListByKeywordService =  async (req)=>{
         let MatchStage = {$match:searchQuery};
         let JoinWithBrand = {$lookup:{from:"brands",localField:"brandID",foreignField:"_id",as:"brand"}};
         let JoniWithCategory = {$lookup:{from:"categories",localField:"categoryID",foreignField:"_id",as:"category"}};
-        let JoniWithProductDetail = {$lookup:{from:"productdetails",localField:"_id",foreignField:"productID",as:"productDetail"}};
+        let JoniWithProductDetail = {$lookup:{from:"ProductDetail",localField:"_id",foreignField:"productID",as:"productDetail"}};
         let unwindBrandStage={$unwind:"$brand"}
         let unwindCategoryStage={$unwind:"$category"}
         let unwindProductDetailStage={$unwind:"$productDetail"}
@@ -208,7 +209,7 @@ export const ProductDetailService =  async (req)=>{
         let MatchStage= {$match:{_id:ProductID}};
         let JoinWithBrand = {$lookup:{from:"brands",localField:"brandID",foreignField:"_id",as:"brand"}};
         let JoniWithCategory = {$lookup:{from:"categories",localField:"categoryID",foreignField:"_id",as:"category"}};
-        let JoniWithProductDetail = {$lookup:{from:"productdetails",localField:"_id",foreignField:"productID",as:"productDetail"}};
+        let JoniWithProductDetail = {$lookup:{from:"ProductDetail",localField:"_id",foreignField:"productID",as:"productDetail"}};
         let unwindBrandStage={$unwind:"$brand"}
         let unwindCategoryStage={$unwind:"$category"}
         let unwindProductDetailStage={$unwind:"$productDetail"}
