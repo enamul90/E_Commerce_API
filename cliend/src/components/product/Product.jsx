@@ -148,7 +148,7 @@ const Product = () => {
                                                         ProductList.map((item, index) => {
                                                             let rating = parseInt(item.star)
                                                             return (
-                                                                <div key={index} className="col-md-3 p-2 col-lg-2 col-sm-6 col-12 link-underline-opacity-0">
+                                                                <div key={index} className="col-md-3 p-2 col-lg-3 col-sm-6 col-12 link-underline-opacity-0">
                                                                     <Link  to={`/product-detail/${item._id}`}
                                                                            className="card shadow-sm h-100 rounded-3 bg-white">
                                                                         <img className="w-100 rounded-top-2" src={product}/>

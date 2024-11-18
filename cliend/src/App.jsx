@@ -12,6 +12,8 @@ import HowToBuyPage from "./pages/HowToBuyPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import ComplainPage from "./pages/ComplainPage.jsx";
 import RefundPage from "./pages/RefundPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import OtpPage from "./pages/OtpPage.jsx";
 
 const App = () => {
     return (
@@ -29,6 +31,8 @@ const App = () => {
                 <Route path="/howtobuy" element={<HowToBuyPage />}/>
                 <Route path="/contact" element={<ContactPage />}/>
                 <Route path="/complain" element={<ComplainPage />}/>
+                <Route path="/login" element={<LoginPage />}/>
+                <Route path="/otp" element={<OtpPage />}/>
 
             </Routes>
 
