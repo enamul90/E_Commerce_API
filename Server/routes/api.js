@@ -73,11 +73,13 @@ router.get('/InvoiceProduct/:invoiceID',AuthMiddleware,InvoiceController.Invoice
 // Features
 
 router.get('/FeaturesList',FeaturesController.FeaturesList)
+router.get('/LegalDetail/:type',FeaturesController.LegalDetail)
 
 
 // Create Review
 
 router.post('/CreateReview',AuthMiddleware,ProductController.CreateReview)
+
 
 
 
