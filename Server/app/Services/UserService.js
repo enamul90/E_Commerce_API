@@ -28,7 +28,6 @@ export const VerifyLoginService =  async (req)=>{
     try{
         let email = req.params.email;
         let otp = req.params.otp;
-        console.log(email)
 
         let user = await userModel.find({email:email,otp:otp}).countDocuments('total');
 
