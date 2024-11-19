@@ -17,17 +17,16 @@ export const VerifyLogin = async (req, res) => {
     if(result['status']==="success"){
         let cookieOption={
             maxAge:JWT_EXPIRES,
-            httponly:true,
+            httpOnly:false,
             sameSite:"none",
             secure:true,
-
         }
 
-        res.cookie('Token',result['Token'],cookieOption)
+        res.cookie('token',result['Token'],cookieOption)
         return res.json(result)
     }
     else {
-        return res.json.stringify(result)
+        return res.json(result)
     }
 
 }

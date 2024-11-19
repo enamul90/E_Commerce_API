@@ -17,6 +17,7 @@ const OtpForm = () => {
         if(!ValidationHelper.IsEmpty(otpFormValues) ){
             setCard("opacity-25")
             const res = await VerifyLoginRequest(otpFormValues)
+            console.log(res)
             setCard(" ")
 
             if (res) {
