@@ -26,7 +26,7 @@ const Features = () => {
                                         <div className="card shadow-sm">
                                             <div className="card-body">
                                                 <div className="row">
-                                                    <div className="col-3">
+                                                    <div className="col-3 ">
                                                         <i className="bi bi-award-fill fs-1"></i>
                                                     </div>
                                                     <div className="col-9">

@@ -21,15 +21,20 @@ import {
 
 
 
-const app = express();
+const app = express(); 
 
 
 // Security Apply
-
-app.use(cors());
+app.use(cookieParser())
+app.use(cors(
+    { credentials: true,
+        origin: 'http://localhost:5173',
+       
+    }
+));
 app.use(helmet());
 app.use(hpp());
-app.use(cookieParser())
+
 
 
 

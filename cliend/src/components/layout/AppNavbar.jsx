@@ -3,9 +3,13 @@ import {Link} from "react-router-dom";
 import logo from '../../assets/images/logo.png';
 import ProductStore from "../../store/ProductStore.js";
 import {useNavigate} from "react-router-dom";
+import UserStore from "../../store/UserStor.js";
 
 
 const AppNavbar = () => {
+
+    const {userLogin} = UserStore()
+
     let navigate = useNavigate()
 
     const { setSearchKeyword,  searchKeyword,ProductListKeywordRequest}=ProductStore()
@@ -76,14 +80,28 @@ const AppNavbar = () => {
                                Search
                             </button>
                         </div>
-                        <Link to="/cart" type="button" className="btn ms-2 btn-light position-relative">
-                            <i className="bi text-dark bi-bag"></i>
-                        </Link>
-                        <Link to="/wish" type="button" className="btn ms-2 btn-light d-flex">
-                            <i className="bi text-dark bi-heart"></i>
-                        </Link>
-                        <Link type="button" className="btn ms-3 btn-success d-flex" to="/profile">Profile</Link>
-                        <Link type="button" className="btn ms-3 btn-success d-flex" to="/profile">Logout</Link>
+
+                        {
+
+                            userLogin()? (
+                                    <>
+                                        <Link to="/cart" type="button" className="btn ms-2 btn-light position-relative">
+                                            <i className="bi text-dark bi-bag"></i>
+                                        </Link>
+                                        <Link to="/wish" type="button" className="btn ms-2 btn-light d-flex">
+                                            <i className="bi text-dark bi-heart"></i>
+                                        </Link>
+                                        <Link type="button" className="btn ms-3 btn-success d-flex" to="/profile">Profile</Link>
+                                        <Link type="button" className="btn ms-3 btn-success d-flex" to="/profile">Logout</Link>
+                                    </>
+                            ):(
+                                <Link type="button" className="btn ms-3 btn-success d-flex" to="/login">Login</Link>
+                            )
+
+                        }
+
+
+
                     </div>
                 </div>
             </nav>
