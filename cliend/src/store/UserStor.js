@@ -7,7 +7,14 @@ import Cookies from 'js-cookie';
 let userOtpApi = "http://localhost:3001/api/UserOPT/"
 let verifyLoginApi = "http://localhost:3001/api/VerifyLogin/"
 let LogOutApi = "http://localhost:3001/api/SignOut"
+let ReadProfileApi = "http://localhost:3001/api/ReadProfile"
 
+
+let token = {
+    headers: {
+        token: Cookies.get("token"),
+    }
+}
 
 const UserStore = create((set)=>({
 
@@ -21,7 +28,6 @@ const UserStore = create((set)=>({
         let res = await axios.post(userOtpApi + e)
         setEmail(e)
 
-        console.log(res.data['status'])
         if(res.data['status'] === "success"){
             return true
         }
@@ -54,7 +60,18 @@ const UserStore = create((set)=>({
            }
        })
         return res.data['status'] === "success"
+    },
+
+    profileData: null,
+    reqProfileData: async()=>{
+
+      const res =  await axios.get(ReadProfileApi, token)
+        if(res.data['status'] === "success"){
+            set({profileData: res.data['data']})
+        }
+
     }
+
 
 }))
 
