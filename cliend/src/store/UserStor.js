@@ -6,6 +6,7 @@ import Cookies from 'js-cookie';
 
 let userOtpApi = "http://localhost:3001/api/UserOPT/"
 let verifyLoginApi = "http://localhost:3001/api/VerifyLogin/"
+let LogOutApi = "http://localhost:3001/api/SignOut"
 
 
 const UserStore = create((set)=>({
@@ -43,6 +44,16 @@ const UserStore = create((set)=>({
     userLogin: ()=>{
         return !!Cookies.get("token")
     },
+
+
+    signOut: async ()=>{
+
+        // Cookies.remove("token")
+        // sessionStorage.removeItem("email")
+        await axios.get(LogOutApi)
+        window.location.href = "/"
+
+    }
 
 
 }))

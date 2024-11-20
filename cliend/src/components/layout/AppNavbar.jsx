@@ -12,7 +12,8 @@ const AppNavbar = () => {
 
     let navigate = useNavigate()
 
-    const { setSearchKeyword,  searchKeyword,ProductListKeywordRequest}=ProductStore()
+    const { setSearchKeyword,   searchKeyword,ProductListKeywordRequest}=ProductStore()
+    const {signOut,}=UserStore()
 
     const search = async ()=>{
 
@@ -92,15 +93,13 @@ const AppNavbar = () => {
                                             <i className="bi text-dark bi-heart"></i>
                                         </Link>
                                         <Link type="button" className="btn ms-3 btn-success d-flex" to="/profile">Profile</Link>
-                                        <Link type="button" className="btn ms-3 btn-success d-flex" to="/profile">Logout</Link>
+                                        <button onClick={()=>signOut()} type="button" className="btn ms-3 btn-success d-flex">Logout</button>
                                     </>
                             ):(
                                 <Link type="button" className="btn ms-3 btn-success d-flex" to="/login">Login</Link>
                             )
 
                         }
-
-
 
                     </div>
                 </div>

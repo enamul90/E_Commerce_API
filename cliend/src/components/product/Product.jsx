@@ -61,12 +61,12 @@ const Product = () => {
                                         <div className="tab-pane fade show active" id="pills-new" role="tabpanel"
                                              aria-labelledby="pills-home-tab" tabIndex="0">
                                             <div className="container">
-                                                <div className="row ">
+                                                <div className="row row-cols-5 gy-4 ">
                                                     {
                                                         ProductList.map((item, index) => {
                                                             let rating = parseInt(item.star)
                                                             return (
-                                                                <div key={index} className="col-md-3 p-2 col-lg-3 col-sm-6 col-12 link-underline-opacity-0">
+                                                                <div key={index} >
                                                                     <Link  to={`/product-detail/${item._id}`}
                                                                           className="card shadow-sm h-100 rounded-3 bg-white">
                                                                         <img className="w-100 rounded-top-2" src={product}/>
@@ -88,12 +88,12 @@ const Product = () => {
                                         <div className="tab-pane fade" id="pills-trending" role="tabpanel"
                                              aria-labelledby="pills-profile-tab" tabIndex="0">
                                             <div className="container">
-                                                <div className="row">
+                                                <div className="row row-cols-5 gy-4">
                                                     {
                                                         ProductList.map((item, index) => {
                                                             let rating = parseInt(item.star)
                                                             return (
-                                                                <div key={index} className="col-md-3 p-2 col-lg-3 col-sm-6 col-12 link-underline-opacity-0">
+                                                                <div key={index} >
                                                                     <Link  to={`/product-detail/${item._id}`}
                                                                            className="card shadow-sm h-100 rounded-3 bg-white">
                                                                         <img className="w-100 rounded-top-2" src={product}/>
@@ -115,12 +115,12 @@ const Product = () => {
                                         <div className="tab-pane fade" id="pills-popular" role="tabpanel"
                                              aria-labelledby="pills-contact-tab" tabIndex="0">
                                             <div className="container">
-                                                <div className="row">
+                                                <div className="row row-cols-5 gy-4">
                                                     {
                                                         ProductList.map((item, index) => {
                                                             let rating = parseInt(item.star)
                                                             return (
-                                                                <div key={index} className="col-md-3 p-2 col-lg-3 col-sm-6 col-12 link-underline-opacity-0">
+                                                                <div key={index} >
                                                                     <Link  to={`/product-detail/${item._id}`}
                                                                            className="card shadow-sm h-100 rounded-3 bg-white">
                                                                         <img className="w-100 rounded-top-2" src={product}/>
@@ -143,12 +143,12 @@ const Product = () => {
                                              aria-labelledby="pills-disabled-tab"
                                              tabIndex="0">
                                             <div className="container">
-                                                <div className="row">
+                                                <div className="row row-cols-5 gy-4">
                                                     {
                                                         ProductList.map((item, index) => {
                                                             let rating = parseInt(item.star)
                                                             return (
-                                                                <div key={index} className="col-md-3 p-2 col-lg-3 col-sm-6 col-12 link-underline-opacity-0">
+                                                                <div key={index} >
                                                                     <Link  to={`/product-detail/${item._id}`}
                                                                            className="card shadow-sm h-100 rounded-3 bg-white">
                                                                         <img className="w-100 rounded-top-2" src={product}/>
@@ -170,12 +170,12 @@ const Product = () => {
                                         <div className="tab-pane fade" id="pills-special" role="tabpanel"
                                              aria-labelledby="pills-disabled-tab" tabIndex="0">
                                             <div className="container">
-                                                <div className="row">
+                                                <div className="row row-cols-5 gy-4">
                                                     {
                                                         ProductList.map((item, index) => {
                                                             let rating = parseInt(item.star)
                                                             return (
-                                                                <div key={index} className="col-md-3 p-2 col-lg-3 col-sm-6 col-12 link-underline-opacity-0">
+                                                                <div key={index} >
                                                                     <Link  to={`/product-detail/${item._id}`}
                                                                            className="card shadow-sm h-100 rounded-3 bg-white">
                                                                         <img className="w-100 rounded-top-2" src={product}/>

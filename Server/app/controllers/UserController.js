@@ -35,9 +35,9 @@ export const VerifyLogin = async (req, res) => {
 export const SignOut = async (req, res) =>{
     let cookieOption={
         expires:new Date( Date.now() - 3600 * 60 * 60 * 1000),
-        httpOnly:false
+        httpOnly:true
     }
-    res.cookie('Token',cookieOption)
+    res.cookie('token',cookieOption)
     return res.json({status:"success"})
 }
 
