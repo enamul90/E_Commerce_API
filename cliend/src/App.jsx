@@ -14,6 +14,7 @@ import ComplainPage from "./pages/ComplainPage.jsx";
 import RefundPage from "./pages/RefundPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import OtpPage from "./pages/OtpPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 
 const App = () => {
     return (
@@ -33,6 +34,7 @@ const App = () => {
                 <Route path="/complain" element={<ComplainPage />}/>
                 <Route path="/login" element={<LoginPage />}/>
                 <Route path="/otp" element={<OtpPage />}/>
+                <Route path="/profile" element={<ProfilePage />}/>
 
             </Routes>
 

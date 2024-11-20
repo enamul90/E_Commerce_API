@@ -1,10 +1,13 @@
 import {TokenDecode} from "../utility/TokenUtility.js";
 
+
 export default (req, res, next)=>{
 
 
-    let token = req.cookies['token'];
-    console.log(token)
+    let token = req.headers['token']; 
+    if(!token){
+        token = req.cookies['token'];
+    }
     let decoded = TokenDecode(token)
 
 

@@ -4,6 +4,7 @@ import logo from '../../assets/images/logo.png';
 import ProductStore from "../../store/ProductStore.js";
 import {useNavigate} from "react-router-dom";
 import UserStore from "../../store/UserStor.js";
+import Cookies from "js-cookie";
 
 
 const AppNavbar = () => {
@@ -26,6 +27,13 @@ const AppNavbar = () => {
             navigate("/buy-keyword")
             setSearchKeyword(null)
         }
+    }
+
+    const logOut = async ()=>{
+        await signOut()
+        Cookies.remove("token")
+        sessionStorage.clear()
+        navigate("/")
     }
 
     return (
@@ -93,7 +101,7 @@ const AppNavbar = () => {
                                             <i className="bi text-dark bi-heart"></i>
                                         </Link>
                                         <Link type="button" className="btn ms-3 btn-success d-flex" to="/profile">Profile</Link>
-                                        <button onClick={()=>signOut()} type="button" className="btn ms-3 btn-success d-flex">Logout</button>
+                                        <button onClick={logOut} type="button" className="btn ms-3 btn-success d-flex">Logout</button>
                                     </>
                             ):(
                                 <Link type="button" className="btn ms-3 btn-success d-flex" to="/login">Login</Link>

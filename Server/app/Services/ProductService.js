@@ -286,6 +286,21 @@ export const CreateReviewService =  async (req)=>{
 
 export const ProductListBuyFilterService =  async (req)=>{
 
+    let matchCondition = {}
+
+    if(req.body['categoryID']){
+        matchCondition.categoryID = new ObjectId(req.body['categoryID'])
+    }
+    if(req.body['brandID']){
+        matchCondition.brandID = new ObjectId(req.body['brandID'])
+    }
+
+    let MatchStage = {$match: matchCondition}
+
+
+    
+
+
     let user_id =new ObjectId(req.headers.user_id._id)
     let reqBody = req.body;
 

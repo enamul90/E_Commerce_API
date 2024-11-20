@@ -17,7 +17,6 @@ export const TokenDecode = (token)=>{
         let decoded=jwt.decode(token, key)
         return decoded
 
-        // return  jwt.verify(token,JWT_KEY)
     }
     catch (e){
         return null

@@ -27,7 +27,8 @@ const app = express();
 // Security Apply
 app.use(cookieParser())
 app.use(cors(
-    { credentials: true,
+    {  
+        credentials: true,
         origin: 'http://localhost:5173',
        
     }

@@ -45,16 +45,16 @@ const UserStore = create((set)=>({
         return !!Cookies.get("token")
     },
 
-
     signOut: async ()=>{
 
-        // Cookies.remove("token")
-        // sessionStorage.removeItem("email")
-        await axios.get(LogOutApi)
-        window.location.href = "/"
 
+       const res = await axios.get(LogOutApi, {
+           headers: {
+               token: Cookies.get("token"),
+           }
+       })
+        return res.data['status'] === "success"
     }
-
 
 }))
 
