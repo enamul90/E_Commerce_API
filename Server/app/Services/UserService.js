@@ -60,9 +60,7 @@ export const CreateProfileService = async (req)=>{
         let userID = req.headers.user_id;
         let reqBody=req.body
         reqBody.userID=userID;
-
-        await profileModel.updateOne({userID:userID},{$set:reqBody},{upsert:true} );
-
+          await profileModel.updateOne({userID:userID},{$set:reqBody},{upsert:true} );
 
         return {status:"success", message:"Successfully created profile successfully.",};
     }

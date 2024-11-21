@@ -1,7 +1,7 @@
 export const PORT=3001;
 export const DATABASE_URL='mongodb://localhost:27017/E_Commerce_Api';
 export const JWT_KEY='ABC1223';
-export const JWT_EXPIRES=1000*60*15;
+export const JWT_EXPIRES=1000*60*60*2;
 
 
 export const EMAIL_HOST="mail.teamrabbil.com"

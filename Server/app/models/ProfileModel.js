@@ -8,12 +8,17 @@ const ProfileSchema = new mongoose.Schema({
     cou_name:{type:String},
     cus_Phone:{type:String},
     cou_postcode:{type:String},
-    ship_address:{type:String},
+    cou_Fax:{type:String},
+    cou_State:{type:String},
+    ship_Add:{type:String},
     ship_city:{type:String},
     ship_country:{type:String},
     ship_name:{type:String},
-    ship_phone:{type:String},
+    ship_Phone:{type:String},
     ship_postcode:{type:String},
+    ship_Fax:{type:String},
+    ship_State:{type:String},
+
 },{timestamps: true, versionKey:false}
 )
 

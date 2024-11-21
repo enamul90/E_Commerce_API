@@ -43,14 +43,9 @@ export const CreateProfile = async (req, res) => {
     let result = await CreateProfileService(req)
     return res.json(result)
 
-}
-
-
-export const UpdateProfile = async (req, res) => {
-    let result = await CreateProfileService(req)
-    return res.json(result)
 
 }
+
 
 export const ReadProfile = async (req, res) => {
     let result = await ReadProfileService(req)

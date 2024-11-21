@@ -12,7 +12,6 @@ import * as FeaturesController from "../app/controllers/FeaturesController.js";
 
 
 
-
 // Product API
 
 router.get('/BrandList',ProductController.BrandList)
@@ -35,7 +34,6 @@ router.post('/UserOPT/:email',UsersController.UserOPT)
 router.get('/VerifyLogin/:email/:otp',UsersController.VerifyLogin)
 router.get('/SignOut',AuthMiddleware,UsersController.SignOut)
 router.post('/CreateProfile',AuthMiddleware,UsersController.CreateProfile)
-router.post('/UpdateProfile',AuthMiddleware,UsersController.UpdateProfile)
 router.get('/ReadProfile',AuthMiddleware,UsersController.ReadProfile)
 
 

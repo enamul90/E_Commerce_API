@@ -62,6 +62,8 @@ const UserStore = create((set)=>({
         return res.data['status'] === "success"
     },
 
+
+
     profileData: null,
     reqProfileData: async()=>{
 
@@ -70,7 +72,9 @@ const UserStore = create((set)=>({
             set({profileData: res.data['data']})
         }
 
-    }
+    },
+
+    updateProfile:()
 
 
 }))
