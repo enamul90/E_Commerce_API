@@ -43,7 +43,6 @@ export const CreateProfile = async (req, res) => {
     let result = await CreateProfileService(req)
     return res.json(result)
 
-
 }
 
 

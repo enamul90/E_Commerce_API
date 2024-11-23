@@ -37,7 +37,7 @@ const LoginForm = () => {
     return (
 
         <>
-            <div className={`container section ${card}`}>
+            <div className={`container section `}>
                 <div className="row d-flex justify-content-center">
                     <div className="col-md-5">
                         <div className="card p-5">
@@ -53,7 +53,7 @@ const LoginForm = () => {
 
                             <button
                                 onClick={formHandel}
-                                className="btn mt-3 btn-success"
+                                className={`btn mt-3 btn-success ${card}`}
                             >
                                 Submit
                             </button>
