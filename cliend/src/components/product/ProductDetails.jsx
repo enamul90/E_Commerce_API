@@ -5,11 +5,18 @@ import ProductDetailLoader from "../../skeleton/ProductDetailLoader.jsx";
 import parse from 'html-react-parser'
 import ProductGallery from "../card/ProductGallery.jsx";
 import StarRatings from "react-star-ratings";
+import CardStore from "../../store/CardStor.js";
+import {useParams} from "react-router-dom";
+import toast from "react-hot-toast";
+
 
 
 
 const ProductDetails = () => {
+    const {id} = useParams();
+
     const {productDetails, productReview} =  ProductStore()
+    const {loading, setLoading, CartForm,CartFormChange,CartSaveRequest} = CardStore()
 
     const [qty, setQty] = React.useState(1);
 
@@ -22,7 +29,15 @@ const ProductDetails = () => {
         }
     }
 
-    console.log(productReview)
+    const cardSaveHandel = async ()=>{
+        setLoading("opacity-50")
+        let res =  await CartSaveRequest(CartForm ,id,qty)
+        setLoading("opacity-100")
+        if(res){
+            toast.success("Saved Card Successfully")
+        }
+    }
+
 
 
     if(productDetails===null){
@@ -54,7 +69,9 @@ const ProductDetails = () => {
                                 <div className="row">
                                     <div className="col-4 p-2">
                                         <label className="bodySmal">Size</label>
-                                        <select className="form-control my-2 form-select">
+                                        <select
+                                            onChange={(e)=>{CartFormChange("size", e.target.value)}}
+                                            className="form-control my-2 form-select">
                                             {
                                                 productDetails[0]["productDetail"]["size"].split(",").map((size) => {
                                                     return (
@@ -67,7 +84,9 @@ const ProductDetails = () => {
                                     </div>
                                     <div className="col-4 p-2">
                                         <label className="bodySmal">Color</label>
-                                        <select className="form-control my-2 form-select">
+                                        <select
+                                            onChange={(e)=>{CartFormChange("color", e.target.value)}}
+                                            className="form-control my-2 form-select">
                                             {
                                                 productDetails[0]["productDetail"]["color"].split(",").map((color) => {
                                                     return (
@@ -86,7 +105,12 @@ const ProductDetails = () => {
                                         </div>
                                     </div>
                                     <div className="col-4 p-2">
-                                        <button className="btn w-100 btn-success">Add to Cart</button>
+                                        <button
+                                            className= {`btn w-100 btn-success ${loading}`}
+                                            onClick={cardSaveHandel}
+                                            >
+                                            Add to Cart
+                                        </button>
                                     </div>
                                     <div className="col-4 p-2">
                                         <button className="btn w-100 btn-success">Add to Wish</button>

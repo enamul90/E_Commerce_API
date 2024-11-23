@@ -1,19 +1,20 @@
 import UserStore from "../../store/UserStor.js";
 import {useEffect} from "react";
 import ProfileLoader from "../../skeleton/ProfileLoader.jsx";
-import Cookies from 'js-cookie';
 import toast from "react-hot-toast";
 
 const ProfileDetail = () => {
-    let token = Cookies.get("token");
 
-    const {reqProfileData, profileData ,profileFromChange, updateProfileReq} = UserStore()
+    const {reqProfileData, profileData ,profileFromChange, updateProfileReq, userLogin} = UserStore()
     useEffect(() => {
 
         (async () => {
-            {
-                token?  await reqProfileData() : null
-            }
+
+                if(userLogin()) {
+                    await reqProfileData()
+
+                }
+
         })()
     }, []);
 

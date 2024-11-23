@@ -41,7 +41,6 @@ const UserStore = create((set)=>({
 
     VerifyLoginRequest: async (o)=>{
         let email =  getEmail()
-        setEmail(email)
         let res = await axios.get(`${verifyLoginApi}${email}/${o}`, {withCredentials:true})
         if(res.data['status'] === "success"){
             return true
@@ -70,7 +69,7 @@ const UserStore = create((set)=>({
     reqProfileData: async()=>{
         try{
             const res =  await axios.get(ReadProfileApi, token)
-            if(res.data['status'] === "success"){
+            if(res.data['data'].length>0){
                     set({profileData: res.data['data']['0']})
             }
             else {
