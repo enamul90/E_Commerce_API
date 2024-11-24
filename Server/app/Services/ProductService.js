@@ -167,13 +167,14 @@ export const SmilierProductService =  async (req)=>{
 
 export  const ListByKeywordService =  async (req)=>{
     try{
+
         let searchRegex= {$regex:req.params.Keyword, "$options":"i"};
         let searchPrams = [{title:searchRegex},{shortDes:searchRegex}];
         let searchQuery= {$or:searchPrams};
         let MatchStage = {$match:searchQuery};
         let JoinWithBrand = {$lookup:{from:"brands",localField:"brandID",foreignField:"_id",as:"brand"}};
         let JoniWithCategory = {$lookup:{from:"categories",localField:"categoryID",foreignField:"_id",as:"category"}};
-        let JoniWithProductDetail = {$lookup:{from:"ProductDetail",localField:"_id",foreignField:"productID",as:"productDetail"}};
+        let JoniWithProductDetail = {$lookup:{from:"productdetails",localField:"_id",foreignField:"productID",as:"productDetail"}};
         let unwindBrandStage={$unwind:"$brand"}
         let unwindCategoryStage={$unwind:"$category"}
         let unwindProductDetailStage={$unwind:"$productDetail"}

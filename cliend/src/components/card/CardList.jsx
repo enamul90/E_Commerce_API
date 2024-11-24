@@ -5,9 +5,8 @@ import UserStore from "../../store/UserStor.js";
 import ProductStore from "../../store/ProductStore.js";
 const CardList = () => {
 
-    const  { CartListRequest, CartList,CartTotal, CartVatTotal, CartPayableTotal} = CardStore()
+    const  { CartListRequest, CartList,CartTotal, CartVatTotal, CartPayableTotal,RemoveCartListRequest} = CardStore()
     const {userLogin} = UserStore()
-    // const {productDetails} = ProductStore()
 
 
     useEffect(() => {
@@ -16,11 +15,16 @@ const CardList = () => {
                 if(userLogin()) {
                     await CartListRequest()
                 }
-
             }
         )()
-
     }, []);
+
+
+    const removeCardHandel = async (e)=>{
+        await RemoveCartListRequest(e)
+        await CartListRequest()
+
+    }
 
 
     if(CartList === null){
@@ -28,6 +32,8 @@ const CardList = () => {
             <h1 className="text-center">Loading .....</h1>
         )
     }
+
+
 
     else {
         return (
@@ -40,14 +46,16 @@ const CardList = () => {
                                     <img className="rounded-1" width="90" height="auto" src={img} />
                                     <div className="ms-2 me-auto">
                                         <p className="fw-lighter m-0">{item['product']['title']}</p>
-                                        <p className="fw-lighter my-1">Unit Price: ,Qty: {item['qty']}, Size: {item['size']},
+                                        <p className="fw-lighter my-1">Unit Price: {item['product']['price']} ,Qty: {item['qty']}, Size: {item['size']},
                                             Color: {item['color']}</p>
                                         <p className=" h6 fw-bold m-0 text-dark">Total <i className="bi bi-currency-dollar"></i>
-                                            {parseInt("100")*parseInt(item['qty'])} </p>
+                                            {parseInt(item['product']['price'])*parseInt(item['qty'])} </p>
                                     </div>
-                                    {/*<button onClick={()=>remove(item['_id'])} className="btn btn-sm btn-outline-danger"> <i*/}
-                                    {/*    className="bi bi-trash"></i>*/}
-                                    {/*</button>*/}
+                                    <button
+                                        onClick={()=>removeCardHandel(item['_id'])}
+                                        className="btn btn-sm btn-outline-danger">
+                                        <i className="bi bi-trash"></i>
+                                    </button>
                                 </li> ) }) } </ul>
                                 <div className="my-4">
                                     <ul className="list-group bg-transparent list-group-flush">

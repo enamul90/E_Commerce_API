@@ -1,4 +1,4 @@
-import React from 'react';
+
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
 import ProductBuyBrand from "./pages/ProductBuyBrand.jsx";
@@ -16,6 +16,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import OtpPage from "./pages/OtpPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import CardListPage from "./pages/CardListPage.jsx";
+import WishListPage from "./pages/WishListPage.jsx";
 
 const App = () => {
     return (
@@ -37,6 +38,7 @@ const App = () => {
                 <Route path="/otp" element={<OtpPage />}/>
                 <Route path="/profile" element={<ProfilePage />}/>
                 <Route path="/cart" element={<CardListPage />}/>
+                <Route path="/wish" element={<WishListPage />}/>
 
             </Routes>
 

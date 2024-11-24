@@ -11,6 +11,7 @@ import Product from "../components/product/Product.jsx";
 import Brand from "../components/brand/Brand.jsx";
 import CardStore from "../store/CardStor.js";
 import UserStore from "../store/UserStor.js";
+import WishStore from "../store/WishStore.js";
 
 
 const HomePage = () => {
@@ -19,6 +20,7 @@ const HomePage = () => {
     let {  BrandStoreListRequest,CategoryListRequest, SliderListRequest, ProductListRequest} = ProductStore()
     let {userLogin} =  UserStore()
     let {CartListRequest} = CardStore()
+    let {WishListRequest} = WishStore()
 
 
 
@@ -27,6 +29,7 @@ const HomePage = () => {
             async ()=>{
                 if(userLogin()) {
                     await CartListRequest()
+                    await WishListRequest()
                 }
                 await FeatureStoreListRequest()
                 await BrandStoreListRequest()

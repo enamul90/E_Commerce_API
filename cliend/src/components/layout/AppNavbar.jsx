@@ -6,16 +6,19 @@ import {useNavigate} from "react-router-dom";
 import UserStore from "../../store/UserStor.js";
 import Cookies from "js-cookie";
 import CardStore from "../../store/CardStor.js";
+import {useEffect} from "react";
+import WishStore from "../../store/WishStore.js";
 
 
 const AppNavbar = () => {
 
-    const {userLogin} = UserStore()
     let navigate = useNavigate()
 
+    const {userLogin} = UserStore()
     const { setSearchKeyword,   searchKeyword,ProductListKeywordRequest}=ProductStore()
     const {signOut,}=UserStore()
     const {CartCount} = CardStore()
+    const {WishCount} = WishStore()
 
     const search = async ()=>{
 
@@ -102,10 +105,16 @@ const AppNavbar = () => {
                                             </span>
                                         </Link>
                                         <Link to="/wish" type="button" className="btn ms-2 btn-light d-flex">
-                                            <i className="bi text-dark bi-heart"></i>
+                                             <span className="position-relative">
+                                                <i className="bi text-dark bi-heart"></i>
+                                                <p className="position-absolute top px-2 text-white bg-info rounded-5 dropdown  ">{WishCount}</p>
+                                            </span>
                                         </Link>
-                                        <Link type="button" className="btn ms-3 btn-success d-flex" to="/profile">Profile</Link>
-                                        <button onClick={logOut} type="button" className="btn ms-3 btn-success d-flex">Logout</button>
+                                        <Link type="button" className="btn ms-3 btn-success d-flex"
+                                              to="/profile">Profile</Link>
+                                        <button onClick={logOut} type="button"
+                                                className="btn ms-3 btn-success d-flex">Logout
+                                        </button>
                                     </>
                             ):(
                                 <Link type="button" className="btn ms-3 btn-success d-flex" to="/login">Login</Link>

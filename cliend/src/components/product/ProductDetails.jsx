@@ -8,6 +8,8 @@ import StarRatings from "react-star-ratings";
 import CardStore from "../../store/CardStor.js";
 import {useParams} from "react-router-dom";
 import toast from "react-hot-toast";
+import UserStore from "../../store/UserStor.js";
+import WishStore from "../../store/WishStore.js";
 
 
 
@@ -16,7 +18,10 @@ const ProductDetails = () => {
     const {id} = useParams();
 
     const {productDetails, productReview} =  ProductStore()
-    const {loading, setLoading, CartForm,CartFormChange,CartSaveRequest} = CardStore()
+    const {loading, setLoading, CartForm,CartFormChange,CartSaveRequest, CartListRequest} = CardStore()
+    const {userLogin} = UserStore()
+    const {createWishRequest, WishListRequest} = WishStore()
+
 
     const [qty, setQty] = React.useState(1);
 
@@ -29,11 +34,28 @@ const ProductDetails = () => {
         }
     }
 
+
+    const CreateWishHandl = async () => {
+        setLoading("opacity-25")
+        const res = await createWishRequest(id)
+        setLoading("opacity-100")
+        if(res){
+            await WishListRequest()
+            toast.success("Wish was created successfully.")
+        }
+        else {
+            toast.error("Wish was not created successfully.")
+        }
+    }
+
     const cardSaveHandel = async ()=>{
-        setLoading("opacity-50")
+        setLoading("opacity-25")
         let res =  await CartSaveRequest(CartForm ,id,qty)
         setLoading("opacity-100")
         if(res){
+            if(userLogin()) {
+                await CartListRequest()
+            }
             toast.success("Saved Card Successfully")
         }
         else {
@@ -116,7 +138,11 @@ const ProductDetails = () => {
                                         </button>
                                     </div>
                                     <div className="col-4 p-2">
-                                        <button className="btn w-100 btn-success">Add to Wish</button>
+                                        <button
+                                            onClick={CreateWishHandl}
+                                            className={`btn w-100 btn-success ${loading}`}>
+                                            Add to Wish
+                                        </button>
                                     </div>
                                 </div>
                             </div>

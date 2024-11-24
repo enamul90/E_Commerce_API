@@ -12,6 +12,8 @@ let token = {
 
 let CreateCardApi = "http://localhost:3001/api/CreateCardList"
 let CardListApi = "http://localhost:3001/api/CardList"
+let RemoveCardApi = "http://localhost:3001/api/RemoveCardList"
+
 
 const CardStore  = create((set)=>({
 
@@ -83,7 +85,7 @@ const CardStore  = create((set)=>({
     RemoveCartListRequest:async(cartID)=>{
         try {
             set({CartList:null})
-            await axios.post(`/api/v1/RemoveCartList`,{"_id":cartID});
+            await axios.post(RemoveCardApi,{"_id":cartID},token);
         }catch (e) {
             unauthorized(e.response.status)
         }
@@ -103,8 +105,6 @@ const CardStore  = create((set)=>({
             set({isCartSubmit:false})
         }
     },
-
-
 
 
 
