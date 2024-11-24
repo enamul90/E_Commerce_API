@@ -8,7 +8,7 @@ export const CardListService = async (req) => {
 
     try{
 
-        let user_id=new ObjectId(req.headers.user_id._id)
+        let user_id= new ObjectId(req.headers.user_id._id) 
 
         let matchingStage = {$match:{userID: user_id}};
         let joinProduct = {$lookup: {
@@ -25,7 +25,7 @@ export const CardListService = async (req) => {
                 'product.price':1,
                 'product.image':1,
                 "color": 1,
-                "ftq": 1,
+                "qty": 1,
                 "size": 1,
 
             }}

@@ -66,7 +66,7 @@ export const ListByKeyword= async (req, res) => {
 export const ProductDetail= async (req, res) => {
     let result = await ProductDetailService(req)
     return res.json(result)
-
+    
 }
 
 

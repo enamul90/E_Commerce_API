@@ -5,16 +5,17 @@ import ProductStore from "../../store/ProductStore.js";
 import {useNavigate} from "react-router-dom";
 import UserStore from "../../store/UserStor.js";
 import Cookies from "js-cookie";
+import CardStore from "../../store/CardStor.js";
 
 
 const AppNavbar = () => {
 
     const {userLogin} = UserStore()
-
     let navigate = useNavigate()
 
     const { setSearchKeyword,   searchKeyword,ProductListKeywordRequest}=ProductStore()
     const {signOut,}=UserStore()
+    const {CartCount} = CardStore()
 
     const search = async ()=>{
 
@@ -94,8 +95,11 @@ const AppNavbar = () => {
 
                             userLogin()? (
                                     <>
-                                        <Link to="/cart" type="button" className="btn ms-2 btn-light position-relative">
-                                            <i className="bi text-dark bi-bag"></i>
+                                        <Link to="/cart" type="button" className="btn ms-2 btn-light ">
+                                            <span className="position-relative">
+                                                <i className="bi text-dark bi-bag me-2 "></i>
+                                                <p className="position-absolute top px-2 text-white bg-success rounded-5 dropdown  ">{CartCount}</p>
+                                            </span>
                                         </Link>
                                         <Link to="/wish" type="button" className="btn ms-2 btn-light d-flex">
                                             <i className="bi text-dark bi-heart"></i>

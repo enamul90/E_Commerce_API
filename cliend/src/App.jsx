@@ -15,6 +15,7 @@ import RefundPage from "./pages/RefundPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import OtpPage from "./pages/OtpPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import CardListPage from "./pages/CardListPage.jsx";
 
 const App = () => {
     return (
@@ -35,6 +36,7 @@ const App = () => {
                 <Route path="/login" element={<LoginPage />}/>
                 <Route path="/otp" element={<OtpPage />}/>
                 <Route path="/profile" element={<ProfilePage />}/>
+                <Route path="/cart" element={<CardListPage />}/>
 
             </Routes>
 

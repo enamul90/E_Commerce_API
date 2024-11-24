@@ -1,5 +1,5 @@
 export const PORT=3001;
-export const DATABASE_URL='mongodb://localhost:27017/E_Commerce_Api';
+export const DATABASE_URL='mongodb+srv://uviom:uviom1234@cluster0.bm0eo.mongodb.net/class_e_commerce';
 export const JWT_KEY='ABC1223';
 export const JWT_EXPIRES=1000*60*60*2;
 

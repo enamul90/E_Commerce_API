@@ -36,6 +36,9 @@ const ProductDetails = () => {
         if(res){
             toast.success("Saved Card Successfully")
         }
+        else {
+            toast.error("something went wrong ")
+        }
     }
 
 
