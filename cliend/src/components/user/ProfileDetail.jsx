@@ -119,8 +119,8 @@ const ProfileDetail = () => {
                         <div className="col-md-3 p-2">
                             <label className="form-label">Shipping Phone </label>
                             <input
-                                onChange={(e)=>profileFromChange("ship_phone",e.target.value)}
-                                value={profileData.ship_phone}
+                                onChange={(e)=>profileFromChange("ship_Phone",e.target.value)}
+                                value={profileData.ship_Phone}
                                 type="text"
                                 className="form-control "/>
                         </div>
