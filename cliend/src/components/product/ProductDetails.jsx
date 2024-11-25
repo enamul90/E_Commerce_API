@@ -41,10 +41,10 @@ const ProductDetails = () => {
         setLoading("opacity-100")
         if(res){
             await WishListRequest()
-            toast.success("Wish was created successfully.")
+            toast.success("WishListComponent was created successfully.")
         }
         else {
-            toast.error("Wish was not created successfully.")
+            toast.error("WishListComponent was not created successfully.")
         }
     }
 

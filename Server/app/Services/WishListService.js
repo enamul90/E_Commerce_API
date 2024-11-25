@@ -21,7 +21,7 @@ export const WishListService = async (req) => {
             }}
 
         let unwindProduct={$unwind:"$product"}
-        let projection = {$project:{'_id':0, 'product.title':1, 'product.shortDes':1, 'product.price':1, 'product.image':1,}}
+        let projection = {$project:{'_id':0, 'product.title':1, 'productID':1, 'product.shortDes':1, 'product.price':1, 'product.image':1,}}
 
         let data =  await WishModel.aggregate(
             [
@@ -50,7 +50,7 @@ export const CreateWishListService = async (req) => {
 
         await WishModel.updateOne(reqBody,{$set:reqBody},{upsert:true});
 
-        return {status:"success", message:"Created Wish list successfully"};
+        return {status:"success", message:"Created WishListComponent list successfully"};
     }
     catch (err){
         return {status:"error", Error:err.toString()};
@@ -68,7 +68,7 @@ export const RemoveWishListService = async (req) => {
 
         await WishModel.deleteOne(reqBody);
 
-        return {status:"success", message:"Delete Wish list successfully"};
+        return {status:"success", message:"Delete WishListComponent list successfully"};
     }
     catch (err){
         return {status:"error", Error:err.toString()};

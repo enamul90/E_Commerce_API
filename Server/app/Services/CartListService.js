@@ -95,7 +95,7 @@ export const RemoveCardListService = async (req) => {
 
         await cartModels.deleteOne(reqBody);
 
-        return {status:"success", message:"Delete Wish list successfully"};
+        return {status:"success", message:"Delete WishListComponent list successfully"};
     }
     catch (err){
         return {status:"error", Error:err.toString()};

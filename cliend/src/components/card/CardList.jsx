@@ -29,10 +29,15 @@ const CardList = () => {
 
     if(CartList === null){
         return (
-            <h1 className="text-center">Loading .....</h1>
+            <h1 className="text-center mt-5">Loading .....</h1>
         )
     }
 
+    else if(CartList.length<1){
+        return (
+            <h1 className="text-center mt-5"> Card Empty </h1>
+        )
+    }
 
 
     else {

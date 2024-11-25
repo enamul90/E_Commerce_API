@@ -1,10 +1,11 @@
 import Layout from "../components/layout/Layout.jsx";
 import WishStore from "../store/WishStore.js";
 import {useEffect} from "react";
+import WishListComponent from "../components/wish/WishListComponent.jsx";
 
 const WishListPage = () => {
 
-    const {WishListRequest, WishList} = WishStore()
+    const {WishListRequest} = WishStore()
 
     useEffect(()=>{
 
@@ -19,8 +20,7 @@ const WishListPage = () => {
 
     return (
         <Layout>
-            <h1> Wish list page .....</h1>
-            {/*<p>{WishList[0].title}</p>*/}
+            <WishListComponent />
 
         </Layout>
     );
