@@ -19,7 +19,7 @@ const HomePage = () => {
     let {FeatureStoreListRequest} = FeatureStore()
     let {  BrandStoreListRequest,CategoryListRequest, SliderListRequest, ProductListRequest} = ProductStore()
     let {userLogin} =  UserStore()
-    let {CartListRequest} = CardStore()
+    let {CartListRequest,InvoiceListRequest} = CardStore()
     let {WishListRequest} = WishStore()
 
 
@@ -30,6 +30,7 @@ const HomePage = () => {
                 if(userLogin()) {
                     await CartListRequest()
                     await WishListRequest()
+                    await InvoiceListRequest();
                 }
                 await FeatureStoreListRequest()
                 await BrandStoreListRequest()
