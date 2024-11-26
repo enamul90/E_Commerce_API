@@ -87,7 +87,8 @@ const ProductDetails = () => {
                                 {
                                     productDetails[0]["discount"] === true ?
                                         <span><strike
-                                            class="text-secondary">{productDetails[0]["price"]}</strike> {productDetails[0]["discountPrice"]} </span> :
+                                            class="text-secondary">{productDetails[0]["price"]}</strike> {productDetails[0]["discountPrice"]} </span>
+                                        :
                                         <span>{productDetails[0]["price"]} </span>
                                 }
 
