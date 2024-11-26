@@ -87,12 +87,13 @@ const ProductStore = create((set)=>({
         }
     },
 
-    productReview: null,
+    productReviewList:null,
     productReviewRequest: async (id)=>{
-        let res = await axios.get(    productReviewApi+id)
+        let res = await axios.get(productReviewApi+id)
         if(res.data['Status'] === "success"){
-            set({  productReview: res.data['data']})
+            set({ productReviewList: res.data['data']})
         }
+        console.log(res.data['data'])
     },
 
 

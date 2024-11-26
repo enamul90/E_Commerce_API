@@ -70,9 +70,6 @@ mongoose.connect(DATABASE_URL,{autoIndex:true})
 
 
 
-
-
-
 app.use('/api',routes)
 
 

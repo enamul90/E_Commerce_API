@@ -1,5 +1,4 @@
 
-import img from "../../assets/images/img.png";
 import CardStore from "../../store/CardStor.js";
 import {useEffect} from "react";
 import {useNavigate,} from "react-router-dom";
@@ -43,7 +42,6 @@ const InvoiceListComponent = () => {
                         <div key={i}>
 
                             <li className="list-group-item d-flex justify-content-between align-items-center">
-                                <img className="rounded-1" width="90" height="auto" src={img}/>
                                 <div className="ms-2 me-auto">
                                     <p className="fw-lighter m-0 ">
                                         Total Pride : {item['total']}

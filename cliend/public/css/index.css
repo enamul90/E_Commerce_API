@@ -9,6 +9,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -30,4 +31,25 @@ h1,h2,h3,h4,h5,h6{
   top: -20px;
   font-size: 12px;
   padding: 0 30px;
+}
+
+.review-container{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(221, 253, 183, 0.44);
+  height: 100vh;
+  margin: auto;
+}
+.review-card{
+  position: relative;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  margin-top: 60px !important;
+  background: white !important;
+
 }

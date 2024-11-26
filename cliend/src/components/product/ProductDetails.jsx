@@ -17,7 +17,7 @@ import WishStore from "../../store/WishStore.js";
 const ProductDetails = () => {
     const {id} = useParams();
 
-    const {productDetails, productReview} =  ProductStore()
+    const {productDetails, productReviewList} =  ProductStore()
     const {loading, setLoading, CartForm,CartFormChange,CartSaveRequest, CartListRequest} = CardStore()
     const {userLogin} = UserStore()
     const {createWishRequest, WishListRequest} = WishStore()
@@ -157,8 +157,8 @@ const ProductDetails = () => {
                                 </li>
                                 <li className="nav-item" role="presentation">
                                     <button className="nav-link" id="Review-tab" data-bs-toggle="tab"
-                                            data-bs-target="#Review-tab-pane"
-                                            type="button" role="tab" aria-controls="Review-tab-pane"
+                                            data-bs-target="#ReviewPopup-tab-pane"
+                                            type="button" role="tab" aria-controls="ReviewPopup-tab-pane"
                                             aria-selected="false">Review
                                     </button>
                                 </li>
@@ -176,17 +176,18 @@ const ProductDetails = () => {
                                      aria-labelledby="Review-tab"
                                      tabIndex="0">
                                     {
-                                        productReview ===null? <h3>Loading...</h3> :
-                                            productReview.map((item, index) => {
+                                        productReviewList ===null? <h3>Loading...</h3> :
+                                            productReviewList.map((item, index) => {
+                                                const rating = parseInt(item.rating);
                                                 return (
                                                     <div className="mt-4 bg-white shadow p-3 rounded-1" key={index}>
                                                         <span className='d-flex m-0 p-0'>
                                                             <i className="bi bi-person-fill"></i>
-                                                            <h5 className='ms-2'>{item.Profile["cus_name"]}</h5>
+                                                            <h5 className='ms-2'>{item['Profile']["cus_name"]}</h5>
                                                         </span>
                                                         <p className='m-0 p-0'>{item.des}</p>
                                                         <StarRatings
-                                                            rating={parseInt(item.rating)}
+                                                            rating={rating}
                                                             starDimension="20px"
                                                             starSpacing="10px"
                                                         />
@@ -195,7 +196,7 @@ const ProductDetails = () => {
                                                 )
                                             })
                                     }
-                                    <ul className="list-group list-group-flush"></ul>
+
                                 </div>
                             </div>
                         </div>

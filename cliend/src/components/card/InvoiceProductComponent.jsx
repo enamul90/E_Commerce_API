@@ -1,10 +1,20 @@
 import CardStore from "../../store/CardStor.js";
 import img from "../../assets/images/img.png";
+import ReviewPopup from "../Uopup/ReviewPopup.jsx";
+import ReviewStore from "../../store/ReviewStore.js";
 
 
 const InvoiceProductComponent = () => {
 
     const {InvoiceProductList, } = CardStore()
+    const {setProduct , openPopup ,setOpenPopup} =  ReviewStore()
+
+
+    const reviewHandel = async (e)=>{
+        setOpenPopup("d-block");
+        await setProduct(e)
+    }
+
 
     if (InvoiceProductList ===null) {
         return <h2 className="text-center mt-5"> Loading........</h2>
@@ -15,10 +25,13 @@ const InvoiceProductComponent = () => {
     }
 
 
-
     else {
         return (
             <div className="container mt-4">
+
+                <div className={openPopup}>
+                    <ReviewPopup />
+                </div>
 
                 <ul className="list-group list-group-flush"> {InvoiceProductList.map((item, i) => {
                     return (
@@ -37,14 +50,11 @@ const InvoiceProductComponent = () => {
                                         {item['product']['price']}
 
                                     </p>
-                                    <p className="fw-lighter my-1 w-75">
-                                       {item['product']['discountPrice']}
-                                    </p>
                                 </div>
 
-                                <div className="w-25 ms-auto text-end">
+                                <div className="w-25 ms-auto me-3 text-end">
                                     <button
-                                        // onClick={() => InvoiceDetailHandel(item['_id'])}
+                                        onClick={()=>reviewHandel(item.productID)}
                                         className="btn btn-sm btn-outline-danger">
                                         Review
                                     </button>
@@ -56,7 +66,6 @@ const InvoiceProductComponent = () => {
 
                 })}
                 </ul>
-
 
             </div>
         )

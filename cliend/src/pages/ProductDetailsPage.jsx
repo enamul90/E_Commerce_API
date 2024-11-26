@@ -9,7 +9,7 @@ const ProductDetailsPage = () => {
 
     const {id} = useParams();
 
-    const {productDetailsRequest, productReviewRequest, CategoryListRequest, CategoryList} = ProductStore()
+    const {productDetailsRequest, productReviewRequest, CategoryListRequest, CategoryList,} = ProductStore()
 
     useEffect(()=>{
 

@@ -4,6 +4,7 @@ import ProductsLoader from "../../skeleton/ProductsLoader.jsx";
 import {Link} from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import product from "../../assets/images/img.png";
+import {Stack} from "react-bootstrap";
 const Product = () => {
     let {ProductList ,ProductListRequest } =  ProductStore()
 
@@ -65,6 +66,15 @@ const Product = () => {
                                                     {
                                                         ProductList.map((item, index) => {
                                                             let rating = parseInt(item.star)
+                                                            let Price;
+                                                            let dis = item['discount']
+                                                            if( dis === true){
+                                                                Price = <p> <del>{item['price']}</del>  {item['discountPrice']} </p>
+                                                            }
+                                                            else {
+                                                                Price = <p> {item['price']} </p>
+                                                            }
+
                                                             return (
                                                                 <div key={index} >
                                                                     <Link  to={`/product-detail/${item._id}`}
@@ -72,7 +82,7 @@ const Product = () => {
                                                                         <img className="w-100 rounded-top-2" src={product}/>
                                                                         <div className="card-body">
                                                                             <p className="bodySmal text-secondary my-1">{item.title}</p>
-                                                                            <p className="bodyMedium text-dark my-1">{item.price} </p>
+                                                                            {Price}
                                                                             <StarRatings rating={rating} starRatedColor="red"
                                                                                          starDimension="15px"
                                                                                          starSpacing="2px"/>
@@ -92,6 +102,15 @@ const Product = () => {
                                                     {
                                                         ProductList.map((item, index) => {
                                                             let rating = parseInt(item.star)
+
+                                                            let Price;
+                                                            let dis = item['discount']
+                                                            if( dis === true){
+                                                                Price = <p> <del>{item['price']}</del>  {item['discountPrice']} </p>
+                                                            }
+                                                            else {
+                                                                Price = <p> {item['price']} </p>
+                                                            }
                                                             return (
                                                                 <div key={index} >
                                                                     <Link  to={`/product-detail/${item._id}`}
@@ -99,7 +118,7 @@ const Product = () => {
                                                                         <img className="w-100 rounded-top-2" src={product}/>
                                                                         <div className="card-body">
                                                                             <p className="bodySmal text-secondary my-1">{item.title}</p>
-                                                                            <p className="bodyMedium text-dark my-1">{item.price} </p>
+                                                                            {Price}
                                                                             <StarRatings rating={rating} starRatedColor="red"
                                                                                          starDimension="15px"
                                                                                          starSpacing="2px"/>
@@ -119,6 +138,15 @@ const Product = () => {
                                                     {
                                                         ProductList.map((item, index) => {
                                                             let rating = parseInt(item.star)
+
+                                                            let Price;
+                                                            let dis = item['discount']
+                                                            if( dis === true){
+                                                                Price = <p> <del>{item['price']}</del>  {item['discountPrice']} </p>
+                                                            }
+                                                            else {
+                                                                Price = <p> {item['price']} </p>
+                                                            }
                                                             return (
                                                                 <div key={index} >
                                                                     <Link  to={`/product-detail/${item._id}`}
@@ -126,7 +154,7 @@ const Product = () => {
                                                                         <img className="w-100 rounded-top-2" src={product}/>
                                                                         <div className="card-body">
                                                                             <p className="bodySmal text-secondary my-1">{item.title}</p>
-                                                                            <p className="bodyMedium text-dark my-1">{item.price} </p>
+                                                                            {Price}
                                                                             <StarRatings rating={rating} starRatedColor="red"
                                                                                          starDimension="15px"
                                                                                          starSpacing="2px"/>
@@ -147,6 +175,16 @@ const Product = () => {
                                                     {
                                                         ProductList.map((item, index) => {
                                                             let rating = parseInt(item.star)
+
+                                                            let Price;
+                                                            let dis = item['discount']
+                                                            if( dis === true){
+                                                                Price = <p> <del>{item['price']}</del>  {item['discountPrice']} </p>
+                                                            }
+                                                            else {
+                                                                Price = <p> {item['price']} </p>
+                                                            }
+
                                                             return (
                                                                 <div key={index} >
                                                                     <Link  to={`/product-detail/${item._id}`}
@@ -154,7 +192,7 @@ const Product = () => {
                                                                         <img className="w-100 rounded-top-2" src={product}/>
                                                                         <div className="card-body">
                                                                             <p className="bodySmal text-secondary my-1">{item.title}</p>
-                                                                            <p className="bodyMedium text-dark my-1">{item.price} </p>
+                                                                            {Price}
                                                                             <StarRatings rating={rating} starRatedColor="red"
                                                                                          starDimension="15px"
                                                                                          starSpacing="2px"/>
@@ -174,6 +212,15 @@ const Product = () => {
                                                     {
                                                         ProductList.map((item, index) => {
                                                             let rating = parseInt(item.star)
+                                                            let Price;
+                                                            let dis = item['discount']
+                                                            if( dis === true){
+                                                                Price = <p> <del>{item['price']}</del>  {item['discountPrice']} </p>
+                                                            }
+                                                            else {
+                                                                Price = <p> {item['price']} </p>
+                                                            }
+
                                                             return (
                                                                 <div key={index} >
                                                                     <Link  to={`/product-detail/${item._id}`}
@@ -181,7 +228,8 @@ const Product = () => {
                                                                         <img className="w-100 rounded-top-2" src={product}/>
                                                                         <div className="card-body">
                                                                             <p className="bodySmal text-secondary my-1">{item.title}</p>
-                                                                            <p className="bodyMedium text-dark my-1">{item.price} </p>
+
+                                                                            {Price}
                                                                             <StarRatings rating={rating} starRatedColor="red"
                                                                                          starDimension="15px"
                                                                                          starSpacing="2px"/>

@@ -74,7 +74,7 @@ router.get('/FeaturesList',FeaturesController.FeaturesList)
 router.get('/LegalDetail/:type',FeaturesController.LegalDetail)
 
 
-// Create Review
+// Create ReviewPopup
 
 router.post('/CreateReview',AuthMiddleware,ProductController.CreateReview)
 
