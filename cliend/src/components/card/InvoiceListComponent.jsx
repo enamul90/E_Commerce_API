@@ -1,33 +1,34 @@
-import WishStore from "../../store/WishStore.js";
-import img from "../../assets/images/img.png";
-import { useNavigate} from "react-router-dom";
 
-const WishListComponent = () => {
+import img from "../../assets/images/img.png";
+import CardStore from "../../store/CardStor.js";
+import {useEffect} from "react";
+import {useNavigate,} from "react-router-dom";
+const InvoiceListComponent = () => {
 
     const navigate = useNavigate();
 
-    const {WishList, RemoveWishRequest ,WishListRequest} = WishStore()
+    const {InvoiceList, InvoiceListRequest} = CardStore()
 
-    const removeWishHandel = async (id)=>{
+    useEffect(() => {
+        (
+            async ()=>{
+                await InvoiceListRequest();
+            }
+        )()
+    }, []);
 
-       let res =  await RemoveWishRequest(id)
-        if(res){
-           await  WishListRequest()
-        }
+
+    const InvoiceDetailHandel =  (id)=>{
+        navigate(`/invoiceProduct/${id}`)
 
     }
 
-    const ProductDetailHandel =  (id)=>{
-        navigate(`/product-detail/${id}`)
 
-    }
-
-
-    if (WishList ===null) {
+    if (InvoiceList ===null) {
         return <h2 className="text-center mt-5"> Loading........</h2>
     }
 
-    else if(WishList.length<1){
+    else if(InvoiceList.length<1){
         return <h2 className="text-center mt-5">Wish Empty</h2>
     }
 
@@ -37,33 +38,32 @@ const WishListComponent = () => {
         return (
             <div className="container mt-4">
 
-                <ul className="list-group list-group-flush"> {WishList.map((item, i) => {
+                <ul className="list-group list-group-flush"> {InvoiceList.map((item, i) => {
                     return (
                         <div key={i}>
 
                             <li className="list-group-item d-flex justify-content-between align-items-center">
                                 <img className="rounded-1" width="90" height="auto" src={img}/>
                                 <div className="ms-2 me-auto">
-                                    <p className="fw-lighter m-0 fw-bolder">{item['product']['title']}</p>
-                                    <p className="fw-lighter my-1 w-75">
-                                        {item['product']['shortDes']}
+                                    <p className="fw-lighter m-0 ">
+                                        Total Pride : {item['total']}
                                     </p>
                                     <p className="fw-lighter my-1 w-75">
-                                        {item['product']['price']}
+                                        Payment Status : {item['payment_status']}
+                                    </p>
+                                    <p className="fw-lighter my-1 w-75">
+                                        Delivery Status : {item['delivery_status']}
+                                    </p>
+                                    <p className="fw-lighter my-1 w-75">
+                                        Customer : {item['cus_details']}
                                     </p>
                                 </div>
 
                                 <div className="w-25 ms-auto text-end">
                                     <button
-                                        onClick={() => ProductDetailHandel(item['productID'])}
+                                        onClick={() => InvoiceDetailHandel(item['_id'])}
                                         className="btn btn-sm btn-outline-danger">
-                                        Product Details
-                                    </button>
-                                    <span className="px-2"></span>
-                                    <button
-                                        onClick={() => removeWishHandel(item.productID)}
-                                        className="btn btn-sm btn-outline-danger">
-                                        <i className="bi bi-trash "></i>
+                                        Invoice Details
                                     </button>
                                 </div>
 
@@ -77,10 +77,10 @@ const WishListComponent = () => {
 
             </div>
         )
-            ;
+
     }
 
 
 };
 
-export default WishListComponent;
+export default InvoiceListComponent;

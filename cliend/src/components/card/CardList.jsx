@@ -5,7 +5,7 @@ import UserStore from "../../store/UserStor.js";
 import ProductStore from "../../store/ProductStore.js";
 const CardList = () => {
 
-    const  { CartListRequest, CartList,CartTotal, CartVatTotal, CartPayableTotal,RemoveCartListRequest} = CardStore()
+    const  { CreateInvoiceRequest, CartListRequest, CartList,CartTotal, CartVatTotal, CartPayableTotal,RemoveCartListRequest} = CardStore()
     const {userLogin} = UserStore()
 
 
@@ -75,7 +75,7 @@ const CardList = () => {
                                             className="list-group-item bg-transparent ">
                                             <span className="float-end">
                                                 <button
-                                                    // onClick={async ()=> {await CreateInvoiceRequest()}}
+                                                    onClick={async ()=> {await CreateInvoiceRequest()}}
                                                     className="btn px-5 mt-2 btn-success">
                                                     Check out
                                                 </button>

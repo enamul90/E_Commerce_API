@@ -1,7 +1,10 @@
 import WishStore from "../../store/WishStore.js";
 import img from "../../assets/images/img.png";
+import { useNavigate} from "react-router-dom";
 
 const WishListComponent = () => {
+
+    const navigate = useNavigate();
 
     const {WishList, RemoveWishRequest ,WishListRequest} = WishStore()
 
@@ -11,6 +14,11 @@ const WishListComponent = () => {
         if(res){
            await  WishListRequest()
         }
+
+    }
+
+    const ProductDetailHandel =  (id)=>{
+        navigate(`/product-detail/${id}`)
 
     }
 
@@ -47,9 +55,9 @@ const WishListComponent = () => {
 
                                 <div className="w-25 ms-auto text-end">
                                     <button
-                                        // onClick={() => removeCardHandel(item['_id'])}
+                                        onClick={() => ProductDetailHandel(item['productID'])}
                                         className="btn btn-sm btn-outline-danger">
-                                        Add To card
+                                        Product Details
                                     </button>
                                     <span className="px-2"></span>
                                     <button

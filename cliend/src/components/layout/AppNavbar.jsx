@@ -17,7 +17,7 @@ const AppNavbar = () => {
     const {userLogin} = UserStore()
     const { setSearchKeyword,   searchKeyword,ProductListKeywordRequest}=ProductStore()
     const {signOut,}=UserStore()
-    const {CartCount} = CardStore()
+    const {CartCount, InvoiceListCount} = CardStore()
     const {WishCount} = WishStore()
 
     const search = async ()=>{
@@ -108,6 +108,12 @@ const AppNavbar = () => {
                                              <span className="position-relative">
                                                 <i className="bi text-dark bi-heart"></i>
                                                 <p className="position-absolute top px-2 text-white bg-info rounded-5 dropdown  ">{WishCount}</p>
+                                            </span>
+                                        </Link>
+                                        <Link to="/invoicelist" type="button" className="btn ms-2 btn-light d-flex">
+                                             <span className="position-relative">
+                                                <i className="bi bi-truck"></i>
+                                                <p className="position-absolute top px-2 text-white bg-info rounded-5 dropdown  ">{InvoiceListCount}</p>
                                             </span>
                                         </Link>
                                         <Link type="button" className="btn ms-3 btn-success d-flex"

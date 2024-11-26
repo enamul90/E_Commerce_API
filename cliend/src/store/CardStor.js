@@ -13,6 +13,9 @@ let token = {
 let CreateCardApi = "http://localhost:3001/api/CreateCardList"
 let CardListApi = "http://localhost:3001/api/CardList"
 let RemoveCardApi = "http://localhost:3001/api/RemoveCardList"
+let CreateInvoiceApi = "http://localhost:3001/api/CreateInvoice"
+let InvoiceListApi = "http://localhost:3001/api/InvoiceList"
+let InvoiceProductListApi = "http://localhost:3001/api/InvoiceProduct/"
 
 
 const CardStore  = create((set)=>({
@@ -96,16 +99,38 @@ const CardStore  = create((set)=>({
 
     CreateInvoiceRequest:async()=>{
         try {
-            set({isCartSubmit:true})
-            let res=await axios.get(`/api/v1/CreateInvoice`);
+            let res=await axios.get(CreateInvoiceApi, token);
             window.location.href=res.data['data']['GatewayPageURL'];
         }catch (e) {
             unauthorized(e.response.status)
-        }finally {
-            set({isCartSubmit:false})
         }
     },
 
+    InvoiceList: null,
+    InvoiceListCount: 0,
+
+    InvoiceListRequest:async()=>{
+        try {
+            let res=await axios.get(InvoiceListApi, token);
+            if(res.data['status'] === "success"){
+                set({InvoiceList:res.data['data']})
+                set({InvoiceListCount:(res.data['data']).length})
+            }
+        }catch (e) {
+            unauthorized(e.response.status)
+        }
+    },
+    InvoiceProductList : null,
+    InvoiceProductRequest:async(id)=>{
+        try {
+            let res=await axios.get(InvoiceProductListApi+id, token);
+            if(res.data['status'] === "success"){
+                set({InvoiceProductList:res.data['data']})
+            }
+        }catch (e) {
+            unauthorized(e.response.status)
+        }
+    },
 
 
 }))
