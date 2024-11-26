@@ -67,8 +67,8 @@ const ProfileDetail = () => {
                         <div className="col-md-3 p-2">
                             <label className="form-label">Customer Country </label>
                             <input
-                                onChange={(e)=>profileFromChange("cus_city",e.target.value)}
-                                value={profileData.cus_city}
+                                onChange={(e)=>profileFromChange("cus_country",e.target.value)}
+                                value={profileData.cus_country}
                                 type="text"
                                 className="form-control "/>
                         </div>
