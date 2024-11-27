@@ -22,7 +22,7 @@ const ProductDetails = () => {
     const {userLogin} = UserStore()
     const {createWishRequest, WishListRequest} = WishStore()
 
-
+    console.log( productReviewList)
     const [qty, setQty] = React.useState(1);
 
     const addQty = () => {
@@ -148,42 +148,51 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                         </div>
+
                         <div className="row mt-3">
                             <ul className="nav nav-tabs" id="myTab" role="tablist">
                                 <li className="nav-item" role="presentation">
-                                    <button className="nav-link active" id="Speci-tab" data-bs-toggle="tab"
-                                            data-bs-target="#Speci-tab-pane" type="button" role="tab" aria-controls="Speci-tab-pane" aria-selected="true">Specifications
+                                    <button
+                                        className="nav-link active"
+                                        id="Speci-tab" data-bs-toggle="tab" data-bs-target="#Speci-tab-pane"
+                                        type="button" role="tab" aria-controls="Speci-tab-pane" aria-selected="true"
+                                    >
+                                        Specifications
                                     </button>
                                 </li>
                                 <li className="nav-item" role="presentation">
-                                    <button className="nav-link" id="Review-tab" data-bs-toggle="tab"
-                                            data-bs-target="#ReviewPopup-tab-pane"
-                                            type="button" role="tab" aria-controls="ReviewPopup-tab-pane"
-                                            aria-selected="false">Review
+                                    <button
+                                        className="nav-link" id="Review-tab" data-bs-toggle="tab" data-bs-target="#Review-tab-pane"
+                                        type="button" role="tab" aria-controls="Review-tab-pane" aria-selected="false"
+                                    >
+                                        Review
                                     </button>
                                 </li>
                             </ul>
                             <div className="tab-content" id="myTabContent">
-                                <div className="tab-pane fade show active" id="Speci-tab-pane" role="tabpanel"
-                                     aria-labelledby="Speci-tab" tabIndex="0">
+                                <div
+                                    className="tab-pane fade show active" id="Speci-tab-pane" role="tabpanel"
+                                    aria-labelledby="Speci-tab" tabIndex="0"
+                                >
 
                                     {
                                         parse(productDetails[0]['productDetail']?.des)
                                     }
-
                                 </div>
-                                <div className="tab-pane fade" id="Review-tab-pane" role="tabpanel"
-                                     aria-labelledby="Review-tab"
-                                     tabIndex="0">
+                                <div
+                                    className="tab-pane fade" id="Review-tab-pane" role="tabpanel"
+                                    aria-labelledby="Review-tab" tabIndex="0"
+                                >
+
                                     {
-                                        productReviewList ===null? <h3>Loading...</h3> :
+                                        productReviewList === null ? <h3>Loading...</h3> :
                                             productReviewList.map((item, index) => {
                                                 const rating = parseInt(item.rating);
                                                 return (
-                                                    <div className="mt-4 bg-white shadow p-3 rounded-1" key={index}>
+                                                    <div className="mt-4 bg-white shadow p-3 rounded" key={index}>
                                                         <span className='d-flex m-0 p-0'>
                                                             <i className="bi bi-person-fill"></i>
-                                                            <h5 className='ms-2'>{item['Profile']["cus_name"]}</h5>
+                                                            <h5 className='ms-2 fs-6'>{item['Profile']["cus_name"]}</h5>
                                                         </span>
                                                         <p className='m-0 p-0'>{item.des}</p>
                                                         <StarRatings
@@ -191,12 +200,11 @@ const ProductDetails = () => {
                                                             starDimension="20px"
                                                             starSpacing="10px"
                                                         />
-
                                                     </div>
                                                 )
                                             })
                                     }
-
+                                    <ul className="list-group list-group-flush"></ul>
                                 </div>
                             </div>
                         </div>

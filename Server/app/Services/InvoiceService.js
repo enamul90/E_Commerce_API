@@ -115,7 +115,7 @@ export const CreateInvoiceService = async (req) => {
 
 //=============Step 06: Remove Carts=====================================================================================
 
-    // await  CardModel.deleteMany({userID:user_id});
+    await  CardModel.deleteMany({userID:user_id});
 
 //=============Step 07: Prepare SSL Payment====================================================================================
 

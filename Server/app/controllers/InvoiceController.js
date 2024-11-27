@@ -17,7 +17,7 @@ export const CreateInvoiceController = async (req, res) => {
 export const PaymentSuccessController = async (req, res) => {
 
     let result = await PaymentSuccessService(req)
-    return res.status(200).send(result)
+    return res.status(200).send(result);
 }
 
 
