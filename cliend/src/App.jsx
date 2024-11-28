@@ -19,7 +19,6 @@ import CardListPage from "./pages/CardListPage.jsx";
 import WishListPage from "./pages/WishListPage.jsx";
 import InvoiceListPage from "./pages/InvoiceListPage.jsx";
 import InvoiceProductPage from "./pages/InvoiceProductPage.jsx";
-import PaymentSuccessPage from "./pages/PaymentSuccessPage.jsx";
 
 const App = () => {
     return (
@@ -44,7 +43,6 @@ const App = () => {
                 <Route path="/wish" element={<WishListPage />}/>
                 <Route path="/invoicelist" element={<InvoiceListPage />}/>
                 <Route path="/invoiceProduct/:id" element={<InvoiceProductPage />}/>
-                <Route path="/PaymentSuccess/:id" element={<PaymentSuccessPage />}/>
 
             </Routes>
 

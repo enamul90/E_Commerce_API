@@ -1,6 +1,6 @@
 import CardStore from "../../store/CardStor.js";
 import img from "../../assets/images/img.png";
-import ReviewPopup from "../Uopup/ReviewPopup.jsx";
+import ReviewPopup from "../popup/ReviewPopup.jsx";
 import ReviewStore from "../../store/ReviewStore.js";
 
 

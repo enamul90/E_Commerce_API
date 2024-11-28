@@ -17,21 +17,21 @@ export const CreateInvoiceController = async (req, res) => {
 export const PaymentSuccessController = async (req, res) => {
 
     let result = await PaymentSuccessService(req)
-    return res.status(200).send(result);
+    return res.status(200).redirect('http://localhost:5173/invoicelist');
 }
 
 
 export const PaymentFailController = async (req, res) => {
 
     let result = await PaymentFailService(req)
-    return res.status(200).send(result)
+    return res.status(200).redirect('http://localhost:5173/cart');
 }
 
 
 export const PaymentCancelController = async (req, res) => {
 
     let result = await PaymentCancelService(req)
-    return res.status(200).send(result)
+    return res.status(200).redirect('http://localhost:5173');
 }
 
 

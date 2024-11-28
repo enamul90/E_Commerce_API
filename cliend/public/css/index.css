@@ -54,19 +54,6 @@ h1,h2,h3,h4,h5,h6{
   background: white !important;
 }
 
-.success-card{
-  position: relative;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 400px;
-  margin-top: 60px !important;
-  background: white !important;
-  & button {
-    padding: 10px 25px !important;
-  }
-}
-
 .successIcon{
   width: 100px;
 }
