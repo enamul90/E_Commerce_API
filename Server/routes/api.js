@@ -12,7 +12,7 @@ import * as FeaturesController from "../app/controllers/FeaturesController.js";
 
 
 
-// Product API
+// ProductFilter.jsx API
 
 router.get('/BrandList',ProductController.BrandList)
 router.get('/CategoryList',ProductController.CategoryList)
@@ -61,10 +61,6 @@ router.post('/PaymentIPN/:trxID',InvoiceController.PaymentIPNController)
 
 router.get('/InvoiceList',AuthMiddleware,InvoiceController.InvoiceListController)
 router.get('/InvoiceProduct/:invoiceID',AuthMiddleware,InvoiceController.InvoiceProductController)
-
-
-
-
 
 
 

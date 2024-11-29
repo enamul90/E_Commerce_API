@@ -11,6 +11,7 @@ let categoryListApi = "http://localhost:3001/api/ListByCategory/"
 let keywordApi = "http://localhost:3001/api/ListByKeyword/"
 let productDetailsApi = "http://localhost:3001/api/ProductDetail/"
 let productReviewApi = "http://localhost:3001/api/ProductReviewList/"
+let productFilterApi = "http://localhost:3001/api/ProductListBuyFilter"
 
 const ProductStore = create((set)=>({
     BrandList: null,
@@ -94,6 +95,15 @@ const ProductStore = create((set)=>({
             set({productReviewList: res.data['data']})
         }
     },
+
+    productFilterRequest: async (body)=>{
+
+        let res = await axios.post(productFilterApi, body)
+        if(res.data['Status'] === "success"){
+            set({ProductList: res.data['data']})
+        }
+    },
+
 
 
 }))

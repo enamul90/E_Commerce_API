@@ -3,6 +3,7 @@ import Layout from "../components/layout/Layout.jsx";
 import ProductStore from "../store/ProductStore.js";
 import {useParams} from "react-router-dom";
 import ProductCard from "../components/card/ProductCard.jsx";
+import ProductFilter from "../components/product/ProductFilter.jsx";
 
 const ProductByBrand = () => {
 
@@ -12,7 +13,7 @@ const ProductByBrand = () => {
         <Layout>
             <div className="container">
                 <div className="row">
-                    <div className="col-md-3"></div>
+                    <div className="col-md-3"> <ProductFilter /> </div>
                     <div className="col-md-9">
                         <ProductCard img={img} />
                     </div>
