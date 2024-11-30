@@ -287,6 +287,8 @@ export const CreateReviewService =  async (req)=>{
 
 export const ProductListBuyFilterService =  async (req)=>{
 
+    console.log(req.body)
+
     try{
         let matchCondition = {}
 
@@ -325,7 +327,7 @@ export const ProductListBuyFilterService =  async (req)=>{
             AddFieldsStage,
             PriceMatchStage,
             JoinWithBrandStage,JoinWithCategoryStage,
-            UnwindBrandStage,UnwindCategoryStage, ProjectionStage
+            UnwindBrandStage,UnwindCategoryStage, ProjectionStage  
         ])
         return {status:"success",data:data}
     }catch (e) {
