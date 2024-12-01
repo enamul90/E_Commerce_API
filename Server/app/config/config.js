@@ -4,12 +4,12 @@ export const JWT_KEY='ABC1223';
 export const JWT_EXPIRES=1000*60*60*2;
 
 
-export const EMAIL_HOST="mail.teamrabbil.com"
-export const EMAIL_PORT=25
-export const EMAIL_SECURITY=false
-export const EMAIL_USER="info@teamrabbil.com"
-export const EMAIL_PASS="~sR4[bhaC[Qs"
-export const EMAIL_UN_AUTH=false
+export const EMAIL_HOST="mail.searchfriend.pro"
+export const EMAIL_PORT=465
+export const EMAIL_SECURITY=true
+export const EMAIL_USER="enamul125@searchfriend.pro"
+export const EMAIL_PASS="d(1M~cPFR,je"
+export const EMAIL_UN_AUTH=true
 
 
 export const MAX_JSON_SIZE = "50mb";

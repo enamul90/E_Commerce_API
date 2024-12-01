@@ -13,21 +13,30 @@ const ProductFilter = () => {
         }))
     }
 
-    useEffect(()=>{
-        (
-            async ()=>{
-                if(BrandList === null){
-                    await BrandStoreListRequest();
-                }
-                if( CategoryList === null){
-                    await CategoryListRequest();
-                }
+    // useEffect(()=>{
+    //     (
+    //         async ()=>{
+    //             if(BrandList === null){
+    //                 await BrandStoreListRequest();
+    //             }
+    //             if( CategoryList === null){
+    //                 await CategoryListRequest();
+    //             }
+    //
+    //             await productFilterRequest(ReqBody);
+    //         }
+    //     )()
+    //
+    // }, [ReqBody])
 
-                await productFilterRequest(ReqBody);
-            }
-        )()
-
-    }, [ReqBody])
+    useEffect(() => {
+        (async ()=>{
+            BrandList===null?await BrandStoreListRequest():null;
+            CategoryList===null?await CategoryListRequest():null;
+            let isEveryFilterPropertyEmpty=Object.values(ReqBody).every(value => value==="");
+            !isEveryFilterPropertyEmpty?await productFilterRequest(ReqBody):null
+        })()
+    }, [ReqBody]);
 
 
     return (
@@ -64,14 +73,14 @@ const ProductFilter = () => {
             <input
                 value={ReqBody.priceMax}
                 onChange={(e)=>inputOnChange("priceMax",e.target.value)}
-                min={1} max={10000}
+                min={1} max={100000}
                 type="range"  className="form-range mt-1"/>
 
             <label className="mt-1">Minimum Price $ {ReqBody.priceMin}</label>
             <input
                 value={ReqBody.priceMin}
                 onChange={(e)=>inputOnChange("priceMin",e.target.value)}
-                min={1} max={10000}
+                min={1} max={100000}
                 type="range" className="form-range mt-1"/>
 
 

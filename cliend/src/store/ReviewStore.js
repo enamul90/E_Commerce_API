@@ -40,7 +40,7 @@ const ReviewStore  = create((set)=>({
 
             let res =  await axios.post(createReviewApi, postBody, token)
 
-            if(res.status === 200){
+            if(res.data['Data'] === "success"){
                 return  true
             }
         }

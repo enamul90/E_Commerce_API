@@ -269,25 +269,29 @@ export const ProductReviewListService =  async (req)=>{
 
 export const CreateReviewService =  async (req)=>{
 
-    let user_id =new ObjectId(req.headers.user_id._id)
-    let reqBody = req.body;
-
-    let data = await ReviewModel.create({
-
-        productID: reqBody["productID"],
-        userID:user_id,
-        des:reqBody["des"],
-        rating:reqBody["rating"],
-        }
-    )
-
-    return {Data: data}
+    try{
+        let user_id =new ObjectId(req.headers.user_id._id)
+        let reqBody = req.body;
+    
+        let data = await ReviewModel.create({
+    
+            productID: reqBody["productID"],
+            userID:user_id,
+            des:reqBody["des"],
+            rating:reqBody["rating"],
+            }
+        )
+    
+        return {Data: "success"}
+    }
+    catch(err){
+        return {Data : "Error"}
+    }
 
 }
 
 export const ProductListBuyFilterService =  async (req)=>{
 
-    console.log(req.body)
 
     try{
         let matchCondition = {}

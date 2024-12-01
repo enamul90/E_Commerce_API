@@ -20,8 +20,6 @@ const ReviewPopup = () => {
             toast.error('review create failed.')
         }
 
-
-
     }
 
     return (

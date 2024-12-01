@@ -19,15 +19,15 @@ const SendEmail=async(EmailTo, EmailText, EmailSubject)=>{
     })
 
     let mailOptions={
-        from:"E Commerce App <info@teamrabbil.com>",
+        from:"E Commerce App <enamul125@searchfriend.pro>",
         to:EmailTo,
         subject:EmailSubject,
-        text:EmailText,
-
+        html:EmailText,
 
     }
 
     return await transporter.sendMail(mailOptions);
+
 
 }
 
