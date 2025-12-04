@@ -43,6 +43,8 @@ const App = () => {
                 <Route path="/wish" element={<WishListPage />}/>
                 <Route path="/invoicelist" element={<InvoiceListPage />}/>
                 <Route path="/invoiceProduct/:id" element={<InvoiceProductPage />}/>
+                <Route path="/shop" element={<InvoiceProductPage />}/>
+                <Route path="/blog" element={<InvoiceProductPage />}/>
 
             </Routes>
 

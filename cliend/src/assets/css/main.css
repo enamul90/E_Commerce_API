@@ -256,3 +256,16 @@ body {
         max-width: 1160px;
     }
 }
+
+
+.nav-link.active {
+    color: #ff6600 !important;
+    font-weight: 600;
+   
+}
+
+.nav-link:hover {
+    color: #ff6600 !important;
+    font-weight: 600;
+   
+}
